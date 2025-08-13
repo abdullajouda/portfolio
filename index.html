@@ -1,6 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abdulla Jouda - Flutter Developer">
+  <title>Abdulla Jouda - Flutter Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background-color: #f4f4f9; color: #333; line-height: 1.6; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      background: #007bff;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease-out;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    header p { font-size: 1.2rem; }
+
+    /* Section Styles */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h2 { font-size: 2rem; color: #007bff; margin-bottom: 20px; }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .skill {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .skill:hover { transform: translateY(-10px); }
+    .skill-name { font-weight: bold; margin-bottom: 8px; }
+    .skill-bar {
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .skill-bar-inner {
+      height: 100%;
+      background: #007bff;
+    }
+
+    /* Experience & Education */
+    .experience-item, .education-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .experience-item h3, .education-item h3 { margin-bottom: 5px; }
+    .experience-item span, .education-item span { font-size: 0.9rem; color: #555; }
+
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-form button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .contact-form button:hover { background: #0056b3; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #f1f1f1;
+      margin-top: 40px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .skills { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="abdulla-jouda.jpg" alt="Abdulla Jouda">
+    <h1>Abdulla Jouda</h1>
+    <p>Flutter Developer | Mobile & Web Applications</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate Flutter developer with over 3 years of experience in building high-quality mobile applications. I specialize in creating seamless, cross-platform apps that provide exceptional user experiences. I am committed to continuous learning and staying updated with the latest technologies in the mobile development ecosystem.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-name">Flutter</div>
+        <div class="skill-bar"><div class="skill-bar-inner" style="width: 90%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Dart</div>
+        <div class="skill-bar"><div class="skill-bar-inner" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Firebase</div>
+        <div class="skill-bar"><div class="skill-bar-inner" style="width: 80%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Android</div>
+        <div class="skill-bar"><div class="skill-bar-inner" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">Web Development</div>
+        <div class="skill-bar"><div class="skill-bar-inner" style="width: 70%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-item">
+      <h3>Flutter Developer - Hexa Cit</h3>
+      <span>October 2020 - October 2023</span>
+      <p>Developed and launched over 40 Flutter applications, showcasing a robust portfolio of successful projects. Managed more than 10 projects, ensuring timely delivery and client satisfaction.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-item">
+      <h3>Bachelor of Information Technology</h3>
+      <span>Islamic University of Gaza, 2020</span>
+      <p>Specialized in Information Technology Systems, gaining a solid foundation in software development and IT infrastructure.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-form">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Abdulla Jouda | <a href="https://github.com/abdullajouda" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/abdullajouda" target="_blank">LinkedIn</a></p>
+  </footer>
+
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Abdulla Jouda — Resume</title>
@@ -339,3 +546,4 @@
   </script>
 </body>
 </html>
+ -->
