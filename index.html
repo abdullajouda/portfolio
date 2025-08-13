@@ -1,38 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdulla Jouda — Resume</title>
+  <meta name="description" content="Resume of Abdulla Jouda — Flutter Developer" />
+  <meta property="og:title" content="Abdulla Jouda — Resume" />
+  <meta property="og:description" content="Flutter Developer • Mobile & Web Apps" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#5b46f6" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%235b46f6'/%3E%3Ctext x='50%25' y='54%25' font-size='28' text-anchor='middle' fill='white' font-family='Arial,Helvetica,sans-serif'%3EAJ%3C/text%3E%3C/svg%3E" />
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+  <style>
+    /* ---------- Base + Theme ---------- */
+    :root{
+      --bg:#0f1221;
+      --card:#161a2d;
+      --text:#f2f3f7;
+      --muted:#b6bbd1;
+      --brand:#5b46f6;
+      --brand-2:#7e6bff;
+      --accent:#24d3ee;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --glass: rgba(255,255,255,.06);
+      --border: 1px solid rgba(255,255,255,.12);
+    }
+    :root.light{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#15172a;
+      --muted:#61667a;
+      --brand:#5b46f6;
+      --brand-2:#7e6bff;
+      --accent:#06b6d4;
+      --shadow: 0 10px 40px rgba(23,23,23,.08);
+      --glass: rgba(255,255,255,.8);
+      --border: 1px solid rgba(17,24,39,.06);
+    }
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(91,70,246,.25), transparent 60%),
+                  radial-gradient(900px 500px at 90% -20%, rgba(36,211,238,.20), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/portfolio/">
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .nav{
+      position:sticky;top:0;z-index:50;backdrop-filter: blur(10px);
+      background:linear-gradient(180deg, rgba(0,0,0,.25), transparent);
+      border-bottom: var(--border);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 6px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{
+      width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      display:grid;place-items:center;color:white;font-weight:700;box-shadow: var(--shadow);
+    }
+    .nav a{color:var(--text);text-decoration:none;opacity:.85}
+    .nav a:hover{opacity:1}
+    .controls{display:flex;gap:10px;align-items:center}
+    .btn{
+      border: var(--border); background: var(--glass); color: var(--text);
+      padding:8px 12px;border-radius:10px;cursor:pointer;transition:.2s transform, .2s opacity;
+    }
+    .btn:hover{transform:translateY(-1px);opacity:.95}
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    /* ---------- Hero ---------- */
+    .hero{
+      display:grid;grid-template-columns: 1.2fr .8fr;gap:32px;align-items:center;
+      padding:48px 0 24px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    .hero .intro{padding:28px}
+    .tag{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 10px;border-radius:999px;background:rgba(36,211,238,.12);color:var(--accent);font-weight:600;font-size:.9rem;
+      border:1px solid rgba(36,211,238,.25)
+    }
+    h1{font-size:clamp(28px,4vw,42px);margin:12px 0 6px;line-height:1.2}
+    .subtitle{color:var(--muted);font-size:1.05rem;margin:0 0 16px}
+    .quick{
+      display:flex;flex-wrap:wrap;gap:10px;margin-top:16px
+    }
+    .cta{
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:white;border:none;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer
+    }
+    .cta:hover{filter:brightness(1.05)}
+    .hero .photo{
+      min-height:280px;display:grid;place-items:center;padding:18px; position:relative; overflow:hidden
+    }
+    .photo-inner{
+      width:100%;aspect-ratio:1;border-radius:18px; background:
+        radial-gradient(600px 300px at 20% 0%, rgba(91,70,246,.25), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:var(--border); display:grid;place-items:center; position:relative
+    }
+    .photo-inner img{width:55%;max-width:220px;border-radius:16px;opacity:.95}
+    .orb{
+      position:absolute;inset:auto auto -40px -40px;width:180px;height:180px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, rgba(126,107,255,.5), transparent 60%);
+      filter: blur(20px);opacity:.7;animation: float 6s ease-in-out infinite
+    }
+    @keyframes float{50%{transform: translate(12px,-8px) scale(1.05)}}
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    /* ---------- Sections ---------- */
+    section{margin:28px 0}
+    .section-title{font-size:1.4rem;letter-spacing:.2px;margin:0 0 14px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:var(--border);font-size:.9rem}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+    .item{padding:18px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:var(--border)}
+    .item h3{margin:0 0 4px;font-size:1.05rem}
+    .item .meta{color:var(--muted);font-size:.93rem;margin-bottom:6px}
 
-  <title>portfolio</title>
-  <link rel="manifest" href="manifest.json">
+    /* ---------- Skills bars ---------- */
+    .skill{display:grid;gap:6px}
+    .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+    .bar > span{display:block;height:100%;width:0;background: linear-gradient(90deg,var(--brand),var(--accent));border-radius:inherit;transition: width 1.2s ease}
+
+    /* ---------- Footer ---------- */
+    footer{padding:30px 0 50px;color:var(--muted);text-align:center}
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal{opacity:0; transform: translateY(14px); transition: .7s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;gap:18px}
+    }
+    @media print{
+      :root{--bg:#fff;--card:#fff;--text:#000;--muted:#333;--border:1px solid #ddd;--shadow:none}
+      body{background:#fff}
+      .nav,.controls .btn,.cta{display:none !important}
+      .card{box-shadow:none}
+      section{break-inside:avoid}
+    }
+  </style>
 </head>
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+  <!-- Nav -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo">AJ</div>
+        <strong>Abdulla Jouda</strong>
+      </div>
+      <div class="controls">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" id="themeToggle" aria-label="Toggle theme">Toggle theme</button>
+        <button class="btn" onclick="window.print()">Download PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Hero -->
+    <div class="hero reveal in">
+      <div class="intro card">
+        <span class="tag">Flutter Developer</span>
+        <h1>Hi, I’m <span style="color:var(--brand-2)">Abdulla</span> — I build fast, beautiful mobile & web apps.</h1>
+        <p class="subtitle">
+          TODO: 2–3 sentence summary of your experience, strengths, and the types of projects you love to ship.
+        </p>
+        <div class="quick">
+          <a class="btn" href="#contact">Hire Me</a>
+          <a class="btn" href="#projects">See Projects</a>
+          <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</button>
+          <span class="pill">Location: Palestine</span>
+          <span class="pill">Open to Remote</span>
+        </div>
+      </div>
+
+      <div class="photo card reveal">
+        <div class="photo-inner">
+          <!-- Optional photo. Add assets/profile.jpg to your repo -->
+          <img src="assets/profile.jpg" alt="Profile" onerror="this.style.display='none'">
+          <div class="orb"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Experience</h2>
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>Senior Flutter Developer · <span style="color:var(--accent)">Tech Solutions</span></h3>
+          <div class="meta">2022 — Present · Remote</div>
+          <ul>
+            <li>Led development of cross-platform apps (Android, iOS, Web) with clean architecture and CI/CD.</li>
+            <li>Implemented advanced animations and video performance optimizations in long lists.</li>
+            <li>Collaborated with designers & PMs to ship features used by 50k+ users.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3>Flutter Developer · <span style="color:var(--accent)">AppWorks</span></h3>
+          <div class="meta">2020 — 2022 · Hybrid</div>
+          <ul>
+            <li>Built and maintained production apps integrating REST APIs & Firebase.</li>
+            <li>Improved scrolling performance with debounced autoplay videos and image caching.</li>
+            <li>Owned releases and store submissions (Google Play, AppGallery, App Store).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="reveal">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid cols-2">
+        <div class="item skill">
+          <div style="display:flex;justify-content:space-between"><strong>Flutter / Dart</strong><span>Advanced</span></div>
+          <div class="bar"><span style="width:92%"></span></div>
+          <small class="muted">State management, animations, performance</small>
+        </div>
+        <div class="item skill">
+          <div style="display:flex;justify-content:space-between"><strong>Firebase</strong><span>Advanced</span></div>
+          <div class="bar"><span style="width:88%"></span></div>
+          <small>Auth, Firestore, Storage, FCM</small>
+        </div>
+        <div class="item skill">
+          <div style="display:flex;justify-content:space-between"><strong>REST APIs</strong><span>Advanced</span></div>
+          <div class="bar"><span style="width:86%"></span></div>
+          <small>Dio, interceptors, error handling</small>
+        </div>
+        <div class="item skill">
+          <div style="display:flex;justify-content:space-between"><strong>CI/CD</strong><span>Intermediate</span></div>
+          <div class="bar"><span style="width:70%"></span></div>
+          <small>GitHub Actions, fastlane, code signing</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>Food Delivery App</h3>
+          <div class="meta">Flutter · Firebase · Maps</div>
+          <p>Multi-vendor delivery with real-time order tracking, push notifications, and Stripe integration.</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">Live / Store</a>
+        </div>
+        <div class="item">
+          <h3>Video Social Feed</h3>
+          <div class="meta">Flutter · Video Player · Caching</div>
+          <p>Autoplay videos in lists with visibility detection, debounced play/pause, and preloading.</p>
+          <a class="btn" href="#" target="_blank" rel="noopener">Case Study</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certs -->
+    <section class="reveal">
+      <h2 class="section-title">Education & Certifications</h2>
+      <div class="grid cols-2">
+        <div class="item">
+          <h3>B.Sc. Computer Science</h3>
+          <div class="meta">University Name · 2016 — 2020</div>
+          <p>Relevant coursework: Data Structures, Mobile Dev, Distributed Systems.</p>
+        </div>
+        <div class="item">
+          <h3>Certifications</h3>
+          <div class="meta">Google · Udemy · Coursera</div>
+          <p>Flutter & Dart, Firebase, Clean Architecture.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid">
+        <div class="item">
+          <p><strong>Email:</strong> <a href="mailto:abdulla@example.com">abdulla@example.com</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/abdullajouda" target="_blank" rel="noopener">github.com/abdullajouda</a></p>
+          <p><strong>LinkedIn:</strong> <a href="#" target="_blank" rel="noopener">linkedin.com/in/abdullajouda</a></p>
+          <p><strong>Location:</strong> Palestine · Remote</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Abdulla Jouda. All rights reserved.</footer>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light') root.classList.add('light');
+    document.getElementById('themeToggle').addEventListener('click', ()=>{
+      root.classList.toggle('light');
+      localStorage.setItem('theme', root.classList.contains('light') ? 'light':'dark');
+    });
+
+    // Reveal on scroll
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // Animate skill bars when visible
+    const bars = document.querySelectorAll('.bar > span');
+    const barObs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el = e.target;
+          el.style.width = getComputedStyle(el).width; // trigger read
+          el.style.width = el.getAttribute('style').match(/width:\s*([\d.]+%)/)?.[1] || '80%';
+          barObs.unobserve(el);
+        }
+      });
+    }, {threshold:.6});
+    bars.forEach(b=>barObs.observe(b));
+  </script>
 </body>
 </html>
