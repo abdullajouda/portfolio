@@ -35,16 +35,6 @@
     document.querySelectorAll("[data-project-link]").forEach(function (el) {
       var key = el.getAttribute("data-project-link");
       var url = (key && projects[key]) || "";
-      if (!url && c.email && key) {
-        var label = key.replace(/([A-Z])/g, " $1").replace(/^./, function (s) {
-          return s.toUpperCase();
-        });
-        url =
-          "mailto:" +
-          c.email +
-          "?subject=" +
-          encodeURIComponent("Project: " + label.trim());
-      }
       if (url) {
         el.setAttribute("href", url);
         el.classList.remove("hidden");
@@ -52,7 +42,7 @@
         if (/^https?:\/\//i.test(url)) {
           el.target = "_blank";
           el.rel = "noopener noreferrer";
-        } else if (url.indexOf("mailto:") === 0) {
+        } else {
           el.removeAttribute("target");
           el.removeAttribute("rel");
         }

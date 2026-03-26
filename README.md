@@ -15,7 +15,7 @@ Edit [js/site-config.js](js/site-config.js) and set your real values. Leave any 
 
 | Key | Purpose |
 |-----|---------|
-| `email` | Used for the contact form (`mailto:`), project link fallbacks, and the email row on the contact page |
+| `email` | Used for the contact form (`mailto:`) and the email row on the contact page |
 | `github` | Footer and contact social icon |
 | `linkedin` | Footer and contact social icon |
 | `twitter` | Footer and contact social icon (X or Twitter URL) |
@@ -27,7 +27,7 @@ Edit [js/site-config.js](js/site-config.js) and set your real values. Leave any 
 | `projects.ocsCaseStudy` | OCS Kuwait preview link |
 | `projects.finestAppStore` | Finest App Store link |
 
-If a project URL is empty but `email` is set, that control opens a prefilled `mailto:` instead.
+Project links use **only** the URLs you set here—empty keys hide that control (no `mailto:` fallback). `coinplusCaseStudy` is optional until you have a public case study or demo URL.
 
 Optional: add `resume.pdf` to the repository root and set `resume: "resume.pdf"`.
 
