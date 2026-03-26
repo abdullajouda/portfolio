@@ -3,10 +3,11 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abdulla Jouda | Experience &amp; Skills</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="manifest" href="manifest.json"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -87,7 +88,7 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50 shadow-2xl shadow-indigo-500/10">
 <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-<div class="text-xl font-bold tracking-tighter text-slate-100 font-headline uppercase">ARCHITECT.IO</div>
+<a href="index.html" class="text-xl font-bold tracking-tighter text-slate-100 font-headline uppercase">ARCHITECT.IO</a>
 <div class="hidden md:flex items-center space-gap-8 gap-8 font-['Space_Grotesk'] tracking-tight text-slate-200">
 <a class="text-slate-400 hover:text-slate-100 transition-colors" href="index.html">Home</a>
 <a class="text-slate-400 hover:text-slate-100 transition-colors" href="projects.html">Projects</a>
@@ -95,12 +96,29 @@
 <a class="text-slate-400 hover:text-slate-100 transition-colors" href="contact.html">Contact</a>
 </div>
 <div class="flex items-center gap-4">
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium hover:scale-95 active:scale-90 transition-transform shadow-lg shadow-primary-container/20">
-                    Resume
-                </button>
+<a data-site-link="resume" href="#" class="hidden md:inline-flex items-center justify-center bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium hover:scale-95 active:scale-90 transition-transform shadow-lg shadow-primary-container/20">Resume</a>
+<button type="button" class="md:hidden text-on-surface p-2 rounded-lg hover:bg-slate-800/80" data-mobile-nav-toggle aria-expanded="false" aria-controls="mobile-nav-panel-experience" aria-label="Open menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </div>
 </div>
 </nav>
+<div data-mobile-nav-backdrop data-mobile-nav-close class="fixed inset-0 z-[60] bg-black/70 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+<div id="mobile-nav-panel-experience" data-mobile-nav-panel class="fixed top-0 right-0 z-[70] h-full w-80 max-w-[85vw] bg-slate-950/95 backdrop-blur-xl border-l border-slate-800 p-8 flex flex-col gap-6 translate-x-full transition-transform duration-300 md:hidden shadow-2xl" aria-hidden="true">
+<div class="flex justify-between items-center pb-2 border-b border-slate-800">
+<span class="text-lg font-headline font-bold text-slate-100 tracking-tight">MENU</span>
+<button type="button" data-mobile-nav-close class="text-on-surface p-2 rounded-lg hover:bg-slate-800" aria-label="Close menu">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-1 font-['Space_Grotesk'] text-lg">
+<a href="index.html" class="text-slate-300 hover:text-indigo-400 py-3">Home</a>
+<a href="projects.html" class="text-slate-300 hover:text-indigo-400 py-3">Projects</a>
+<a href="experience.html" class="text-indigo-400 font-bold border-b border-indigo-500/50 py-3">Experience</a>
+<a href="contact.html" class="text-slate-300 hover:text-indigo-400 py-3">Contact</a>
+<a data-site-link="resume" href="#" class="hidden mt-4 px-6 py-3 bg-primary-container text-on-primary-container font-medium rounded-full text-center">Resume</a>
+</nav>
+</div>
 <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
 <!-- Hero / Title Section -->
 <section class="mb-24">
@@ -272,10 +290,10 @@
 <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-secondary/30 rounded-full blur-3xl transition-transform group-hover:scale-150 duration-700"></div>
 <h3 class="font-headline text-2xl font-bold text-on-primary-container mb-4 relative z-10">Need a deep dive?</h3>
 <p class="text-on-primary-container/80 mb-8 relative z-10">Get the full PDF version of my resume for offline viewing and HR archives.</p>
-<button class="relative z-10 w-full py-4 bg-surface-container-lowest text-on-surface font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-on-surface hover:text-surface-container-lowest transition-all">
+<a data-site-link="resume" href="#" class="relative z-10 w-full py-4 bg-surface-container-lowest text-on-surface font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-on-surface hover:text-surface-container-lowest transition-all">
 <span class="material-symbols-outlined" data-icon="download">download</span>
                         Download PDF
-                    </button>
+                    </a>
 </div>
 </div>
 </div>
@@ -307,14 +325,16 @@
 <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
 <div class="font-['Space_Grotesk'] text-lg font-black text-slate-300">ARCHITECT.IO</div>
 <div class="flex gap-8 text-sm font-['Inter'] text-slate-500">
-<a class="hover:text-cyan-400 transition-colors" href="#">Github</a>
-<a class="hover:text-cyan-400 transition-colors" href="#">LinkedIn</a>
-<a class="hover:text-cyan-400 transition-colors" href="#">Twitter</a>
+<a data-site-link="github" class="hover:text-cyan-400 transition-colors" href="#">Github</a>
+<a data-site-link="linkedin" class="hover:text-cyan-400 transition-colors" href="#">LinkedIn</a>
+<a data-site-link="twitter" class="hover:text-cyan-400 transition-colors" href="#">Twitter</a>
 </div>
 <div class="text-sm font-['Inter'] text-slate-600">
-                    © 2024 Kinetic Architect. Built with Flutter &amp; Precision.
+                    © 2024 Abdulla Jouda. Built with HTML &amp; Tailwind.
                 </div>
 </div>
 </div>
 </footer>
+<script src="js/site-config.js"></script>
+<script src="js/site.js"></script>
 </body></html>

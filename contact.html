@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="manifest" href="manifest.json"/>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -94,18 +94,37 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50 shadow-2xl shadow-indigo-500/10">
 <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-<span class="text-xl font-bold tracking-tighter text-slate-100 font-headline">ARCHITECT.IO</span>
+<a href="index.html" class="text-xl font-bold tracking-tighter text-slate-100 font-headline">ARCHITECT.IO</a>
 <div class="hidden md:flex items-center space-x-8">
 <a class="text-slate-400 hover:text-slate-100 transition-colors font-['Space_Grotesk'] tracking-tight" href="index.html">Home</a>
 <a class="text-slate-400 hover:text-slate-100 transition-colors font-['Space_Grotesk'] tracking-tight" href="projects.html">Projects</a>
 <a class="text-slate-400 hover:text-slate-100 transition-colors font-['Space_Grotesk'] tracking-tight" href="experience.html">Experience</a>
 <a class="text-indigo-400 font-bold border-b-2 border-indigo-500 pb-1 font-['Space_Grotesk'] tracking-tight" href="contact.html">Contact</a>
 </div>
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium scale-95 active:scale-90 transition-transform hover:bg-slate-800/50">
-                Resume
-            </button>
+<div class="flex items-center gap-4">
+<a data-site-link="resume" href="#" class="hidden md:inline-flex items-center justify-center bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium scale-95 active:scale-90 transition-transform hover:bg-slate-800/50">Resume</a>
+<button type="button" class="md:hidden text-on-surface p-2 rounded-lg hover:bg-slate-800/80" data-mobile-nav-toggle aria-expanded="false" aria-controls="mobile-nav-panel-contact" aria-label="Open menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
 </div>
 </nav>
+<div data-mobile-nav-backdrop data-mobile-nav-close class="fixed inset-0 z-[60] bg-black/70 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+<div id="mobile-nav-panel-contact" data-mobile-nav-panel class="fixed top-0 right-0 z-[70] h-full w-80 max-w-[85vw] bg-slate-950/95 backdrop-blur-xl border-l border-slate-800 p-8 flex flex-col gap-6 translate-x-full transition-transform duration-300 md:hidden shadow-2xl" aria-hidden="true">
+<div class="flex justify-between items-center pb-2 border-b border-slate-800">
+<span class="text-lg font-headline font-bold text-slate-100 tracking-tight">MENU</span>
+<button type="button" data-mobile-nav-close class="text-on-surface p-2 rounded-lg hover:bg-slate-800" aria-label="Close menu">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-1 font-['Space_Grotesk'] text-lg">
+<a href="index.html" class="text-slate-300 hover:text-indigo-400 py-3">Home</a>
+<a href="projects.html" class="text-slate-300 hover:text-indigo-400 py-3">Projects</a>
+<a href="experience.html" class="text-slate-300 hover:text-indigo-400 py-3">Experience</a>
+<a href="contact.html" class="text-indigo-400 font-bold border-b border-indigo-500/50 py-3">Contact</a>
+<a data-site-link="resume" href="#" class="hidden mt-4 px-6 py-3 bg-primary-container text-on-primary-container font-medium rounded-full text-center">Resume</a>
+</nav>
+</div>
 <!-- Main Content Canvas -->
 <main class="min-h-screen pt-32 pb-20 px-6 asymmetric-gradient overflow-hidden">
 <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -122,15 +141,15 @@
 </div>
 <!-- Contact Info Cards -->
 <div class="space-y-4">
-<div class="flex items-center p-4 rounded-xl bg-surface-container-low border border-outline-variant/15 group hover:bg-surface-container transition-colors">
+<a data-mailto-email href="#" class="flex items-center p-4 rounded-xl bg-surface-container-low border border-outline-variant/15 group hover:bg-surface-container transition-colors">
 <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center mr-4 text-primary">
 <span class="material-symbols-outlined">alternate_email</span>
 </div>
 <div>
 <p class="text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Email</p>
-<p class="text-on-surface font-medium">abdulla.jouda@gmail.com</p>
+<p data-bind-email class="text-on-surface font-medium">abdulla.jouda@gmail.com</p>
 </div>
-</div>
+</a>
 <div class="flex items-center p-4 rounded-xl bg-surface-container-low border border-outline-variant/15 group hover:bg-surface-container transition-colors">
 <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mr-4 text-secondary">
 <span class="material-symbols-outlined">location_on</span>
@@ -143,13 +162,13 @@
 </div>
 <!-- Social Links -->
 <div class="flex gap-4 pt-4">
-<a class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" href="projects.html">
+<a data-site-link="github" href="#" class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" aria-label="GitHub">
 <span class="material-symbols-outlined">terminal</span>
 </a>
-<a class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" href="#">
+<a data-site-link="linkedin" href="#" class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" aria-label="LinkedIn">
 <span class="material-symbols-outlined">work</span>
 </a>
-<a class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" href="#">
+<a data-site-link="twitter" href="#" class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary transition-all" aria-label="Twitter / X">
 <span class="material-symbols-outlined">share</span>
 </a>
 </div>
@@ -165,24 +184,24 @@
 <div class="glass-panel p-8 md:p-12 rounded-3xl border border-outline-variant/15 shadow-2xl relative overflow-hidden">
 <!-- Subtle decorative element -->
 <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container/5 rounded-full blur-3xl"></div>
-<form action="#" class="space-y-6 relative z-10">
+<form data-contact-form class="space-y-6 relative z-10" novalidate>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-2">
-<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1">Name</label>
-<input class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="John Doe" type="text"/>
+<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1" for="contact-name">Name</label>
+<input id="contact-name" name="name" required class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="John Doe" type="text"/>
 </div>
 <div class="space-y-2">
-<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1">Email</label>
-<input class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="john@example.com" type="email"/>
+<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1" for="contact-email">Email</label>
+<input id="contact-email" name="email" required class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="john@example.com" type="email"/>
 </div>
 </div>
 <div class="space-y-2">
-<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1">Subject</label>
-<input class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="Project Inquiry" type="text"/>
+<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1" for="contact-subject">Subject</label>
+<input id="contact-subject" name="subject" class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border" placeholder="Project Inquiry" type="text"/>
 </div>
 <div class="space-y-2">
-<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1">Message</label>
-<textarea class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border resize-none" placeholder="Tell me about your project goals..." rows="5"></textarea>
+<label class="text-xs uppercase tracking-widest font-semibold text-on-surface-variant px-1" for="contact-message">Message</label>
+<textarea id="contact-message" name="message" required class="w-full bg-surface-container-lowest/50 border border-outline-variant/20 rounded-xl px-4 py-3 text-on-surface placeholder:text-outline-variant focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all glow-border resize-none" placeholder="Tell me about your project goals..." rows="5"></textarea>
 </div>
 <button class="w-full bg-gradient-to-r from-primary-container to-secondary text-on-primary-container py-4 rounded-xl font-bold tracking-tight hover:opacity-90 transition-opacity flex items-center justify-center gap-2 group" type="submit">
 <span>Send Message</span>
@@ -190,13 +209,13 @@
 </button>
 </form>
 <!-- Form Success State Overlay (Hidden by default) -->
-<div class="hidden absolute inset-0 bg-surface-container-high/95 backdrop-blur-md z-20 flex flex-col items-center justify-center text-center p-8">
+<div data-contact-success class="hidden absolute inset-0 bg-surface-container-high/95 backdrop-blur-md z-20 flex flex-col items-center justify-center text-center p-8" aria-hidden="true">
 <div class="w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center text-secondary mb-6">
 <span class="material-symbols-outlined text-4xl">check_circle</span>
 </div>
-<h3 class="text-2xl font-headline font-bold mb-2">Message Sent!</h3>
-<p class="text-on-surface-variant max-w-xs">Thanks for reaching out. I'll get back to you within 24 hours.</p>
-<button class="mt-8 text-secondary font-medium hover:underline">Send another message</button>
+<h3 class="text-2xl font-headline font-bold mb-2">Open your email app</h3>
+<p class="text-on-surface-variant max-w-xs">Your message was prepared. Send the email from your client to complete delivery.</p>
+<button type="button" data-contact-reset class="mt-8 text-secondary font-medium hover:underline">Send another message</button>
 </div>
 </div>
 </div>
@@ -207,12 +226,12 @@
 <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
 <div class="space-y-2 text-center md:text-left">
 <span class="font-['Space_Grotesk'] text-lg font-black text-slate-300">ARCHITECT.IO</span>
-<p class="font-['Inter'] text-sm text-slate-500">© 2024 Kinetic Architect. Built with Flutter &amp; Precision.</p>
+<p class="font-['Inter'] text-sm text-slate-500">© 2024 Abdulla Jouda. Built with HTML &amp; Tailwind.</p>
 </div>
 <div class="flex gap-8">
-<a class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">Github</a>
-<a class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">LinkedIn</a>
-<a class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">Twitter</a>
+<a data-site-link="github" class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">Github</a>
+<a data-site-link="linkedin" class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">LinkedIn</a>
+<a data-site-link="twitter" class="font-['Inter'] text-sm text-slate-600 hover:text-cyan-400 transition-colors" href="#">Twitter</a>
 </div>
 </div>
 </footer>
@@ -244,4 +263,6 @@
 <!-- Grid Pattern -->
 <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(72, 228, 255, 0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
 </div>
+<script src="js/site-config.js"></script>
+<script src="js/site.js"></script>
 </body></html>
