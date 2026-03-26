@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#2600a1",
+              "primary-fixed-dim": "#c5c0ff",
+              "on-surface": "#e0e1f7",
+              "on-tertiary-fixed-variant": "#004e5a",
+              "on-surface-variant": "#c8c4d9",
+              "on-tertiary-container": "#a9efff",
+              "on-tertiary": "#00363e",
+              "surface-bright": "#353849",
+              "surface-container-highest": "#313444",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#31d9f4",
+              "on-secondary-fixed": "#001f25",
+              "secondary": "#48e4ff",
+              "tertiary-fixed-dim": "#31d9f4",
+              "outline": "#918ea2",
+              "error-container": "#93000a",
+              "tertiary-container": "#007080",
+              "secondary-container": "#00c8e2",
+              "surface-variant": "#313444",
+              "on-secondary": "#00363e",
+              "outline-variant": "#474556",
+              "inverse-on-surface": "#2d2f40",
+              "on-primary-fixed": "#140067",
+              "primary": "#c5c0ff",
+              "on-tertiary-fixed": "#001f25",
+              "background": "#0f1221",
+              "primary-container": "#5b46f6",
+              "surface-container-lowest": "#0a0d1c",
+              "surface-dim": "#0f1221",
+              "on-background": "#e0e1f7",
+              "surface-container-high": "#262939",
+              "inverse-surface": "#e0e1f7",
+              "tertiary-fixed": "#a2eeff",
+              "primary-fixed": "#e4dfff",
+              "on-primary-fixed-variant": "#3912d8",
+              "surface-container": "#1c1f2e",
+              "surface": "#0f1221",
+              "tertiary": "#31d9f4",
+              "secondary-fixed": "#a2eeff",
+              "surface-container-low": "#181b2a",
+              "on-secondary-fixed-variant": "#004e5a",
+              "surface-tint": "#c5c0ff",
+              "on-primary-container": "#e6e1ff",
+              "on-secondary-container": "#004f5a",
+              "on-error-container": "#ffdad6",
+              "inverse-primary": "#533cee",
+              "on-error": "#690005"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(28, 31, 46, 0.7);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary/30 selection:text-secondary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/50 shadow-2xl shadow-indigo-500/10">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-100 font-headline uppercase">ARCHITECT.IO</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8 font-['Space_Grotesk'] tracking-tight text-slate-200">
+<a class="text-slate-400 hover:text-slate-100 transition-colors" href="index.html">Home</a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors" href="projects.html">Projects</a>
+<a class="text-indigo-400 font-bold border-b-2 border-indigo-500 pb-1" href="experience.html">Experience</a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium hover:scale-95 active:scale-90 transition-transform shadow-lg shadow-primary-container/20">
+                    Resume
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+<!-- Hero / Title Section -->
+<section class="mb-24">
+<div class="inline-block mb-4 px-4 py-1 rounded-full bg-surface-container-high border border-outline-variant/15">
+<span class="text-[10px] uppercase tracking-widest font-medium text-secondary">Career Architecture</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-surface mb-8">
+                Experience &amp; <span class="bg-gradient-to-r from-primary-container to-secondary bg-clip-text text-transparent">Skills</span>
+</h1>
+<p class="max-w-2xl text-lg text-on-surface-variant leading-relaxed">
+                Building scalable digital infrastructures through clean code and kinetic design. Specializing in high-performance cross-platform ecosystems.
+            </p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Timeline & Education -->
+<div class="lg:col-span-7 space-y-20">
+<!-- Experience Section -->
+<div>
+<h2 class="font-headline text-2xl font-bold mb-12 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="work">work</span>
+                        Professional Journey
+                    </h2>
+<div class="relative border-l border-outline-variant/30 ml-3 space-y-16">
+<!-- Experience Item 1 -->
+<div class="relative pl-10">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary-container ring-4 ring-background shadow-[0_0_15px_rgba(91,70,246,0.5)]"></div>
+<div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+<h3 class="text-xl font-bold font-headline text-on-surface">Full-Stack Developer</h3>
+<span class="text-sm font-label uppercase tracking-tighter text-secondary">2023 - Present</span>
+</div>
+<div class="text-primary-fixed-dim font-medium mb-4">CoinPlus</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Architected multi-currency financial systems leveraging Laravel, React, and TypeScript. Optimized core banking logic resulting in a 60% increase in transaction processing speed.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">Laravel</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">React</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">TypeScript</span>
+</div>
+</div>
+<!-- Experience Item 2 -->
+<div class="relative pl-10">
+<div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-outline-variant ring-4 ring-background"></div>
+<div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+<h3 class="text-xl font-bold font-headline text-on-surface">Flutter Developer</h3>
+<span class="text-sm font-label uppercase tracking-tighter text-on-surface-variant">2020 - 2023</span>
+</div>
+<div class="text-primary-fixed-dim font-medium mb-4">Hexa Cit</div>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                                Lead mobile development for high-traffic applications. Shipped 40+ production-grade Flutter apps using Clean Architecture and BLoC pattern.
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">Flutter</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">Dart</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-highest text-[10px] font-label uppercase tracking-wider">Firebase</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Education Section -->
+<div>
+<h2 class="font-headline text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="school">school</span>
+                        Academic Foundation
+                    </h2>
+<div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/15 hover:border-secondary/30 transition-colors">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h3 class="text-lg font-bold text-on-surface">B.Sc. Information Technology</h3>
+<p class="text-on-surface-variant">Islamic University of Gaza</p>
+</div>
+<div class="text-secondary font-label text-sm uppercase tracking-widest px-4 py-1 bg-secondary/10 rounded-full w-fit">Honors Graduate</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Skills & Certifications -->
+<div class="lg:col-span-5 space-y-12">
+<!-- Skill Progress Bars -->
+<div class="p-8 rounded-3xl bg-surface-container border border-outline-variant/15 glass-panel">
+<h2 class="font-headline text-xl font-bold mb-8 text-primary">Technical Expertise</h2>
+<div class="space-y-6">
+<!-- Skill 1 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label text-sm font-medium uppercase tracking-wider">Flutter (Advanced)</span>
+<span class="text-secondary text-sm">95%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary w-[95%]"></div>
+</div>
+</div>
+<!-- Skill 2 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label text-sm font-medium uppercase tracking-wider">Clean Architecture</span>
+<span class="text-secondary text-sm">90%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary w-[90%]"></div>
+</div>
+</div>
+<!-- Skill 3 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label text-sm font-medium uppercase tracking-wider">Laravel / PHP</span>
+<span class="text-secondary text-sm">85%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary w-[85%]"></div>
+</div>
+</div>
+<!-- Skill 4 -->
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-label text-sm font-medium uppercase tracking-wider">React / TS</span>
+<span class="text-secondary text-sm">80%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-secondary w-[80%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-10 flex flex-wrap gap-3">
+<span class="px-4 py-2 rounded-xl bg-surface-container-high border border-outline-variant/20 text-xs font-medium text-on-surface-variant">Firebase</span>
+<span class="px-4 py-2 rounded-xl bg-surface-container-high border border-outline-variant/20 text-xs font-medium text-on-surface-variant">UI/UX Design</span>
+<span class="px-4 py-2 rounded-xl bg-surface-container-high border border-outline-variant/20 text-xs font-medium text-on-surface-variant">SwiftUI</span>
+<span class="px-4 py-2 rounded-xl bg-surface-container-high border border-outline-variant/20 text-xs font-medium text-on-surface-variant">Node.js</span>
+</div>
+</div>
+<!-- Certifications -->
+<div class="p-8 rounded-3xl bg-surface-container-low border border-outline-variant/15">
+<h2 class="font-headline text-xl font-bold mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+                        Certifications
+                    </h2>
+<ul class="space-y-4">
+<li class="flex items-start gap-4 p-4 rounded-2xl hover:bg-surface-container-high transition-colors group">
+<div class="p-2 rounded-lg bg-primary-container/10 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="terminal">terminal</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Android Apps Developer</h4>
+<p class="text-xs text-on-surface-variant">Google Developers Certification</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-2xl hover:bg-surface-container-high transition-colors group">
+<div class="p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="brush">brush</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Adobe XD Design Specialist</h4>
+<p class="text-xs text-on-surface-variant">Adobe Certified Professional</p>
+</div>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-2xl hover:bg-surface-container-high transition-colors group">
+<div class="p-2 rounded-lg bg-primary-container/10 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="layers">layers</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-on-surface">Clean Architecture Masterclass</h4>
+<p class="text-xs text-on-surface-variant">Enterprise Patterns Degree</p>
+</div>
+</li>
+</ul>
+</div>
+<!-- CTA Card -->
+<div class="relative overflow-hidden p-8 rounded-3xl bg-primary-container group">
+<div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-secondary/30 rounded-full blur-3xl transition-transform group-hover:scale-150 duration-700"></div>
+<h3 class="font-headline text-2xl font-bold text-on-primary-container mb-4 relative z-10">Need a deep dive?</h3>
+<p class="text-on-primary-container/80 mb-8 relative z-10">Get the full PDF version of my resume for offline viewing and HR archives.</p>
+<button class="relative z-10 w-full py-4 bg-surface-container-lowest text-on-surface font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-on-surface hover:text-surface-container-lowest transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                        Download PDF
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-3xl md:hidden bg-slate-900/90 backdrop-blur-lg border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2">
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-2" href="index.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-2" href="projects.html">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Work</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-indigo-600/20 text-indigo-400 rounded-xl px-4 py-2" href="experience.html">
+<span class="material-symbols-outlined" data-icon="work_history" style="font-variation-settings: 'FILL' 1;">work_history</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">XP</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-2" href="contact.html">
+<span class="material-symbols-outlined" data-icon="alternate_email">alternate_email</span>
+<span class="text-[10px] uppercase tracking-widest font-medium mt-1">Mail</span>
+</a>
+</div>
+</nav>
+<!-- Footer -->
+<footer class="bg-slate-950 border-t border-outline-variant/10">
+<div class="w-full py-12 px-6">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-6">
+<div class="font-['Space_Grotesk'] text-lg font-black text-slate-300">ARCHITECT.IO</div>
+<div class="flex gap-8 text-sm font-['Inter'] text-slate-500">
+<a class="hover:text-cyan-400 transition-colors" href="#">Github</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">Twitter</a>
+</div>
+<div class="text-sm font-['Inter'] text-slate-600">
+                    © 2024 Kinetic Architect. Built with Flutter &amp; Precision.
+                </div>
+</div>
+</div>
+</footer>
+</body></html>
