@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Abdulla Jouda</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/portfolio/css/styles.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<main id="main" style="display:grid;place-items:center;min-height:100svh;text-align:center">
+  <div class="container">
+    <p class="eyebrow">404</p>
+    <h1 class="h1" style="margin-top:var(--sp-4)">That page doesn't exist</h1>
+    <p class="lede" style="margin:var(--sp-4) auto 0">
+      It may have been renamed or moved. The work is all still here.
+    </p>
+    <p style="margin-top:var(--sp-6);display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap">
+      <a class="btn btn--primary" href="/portfolio/">Back home</a>
+      <a class="btn btn--secondary" href="/portfolio/projects.html">See the work</a>
+    </p>
+  </div>
+</main>
+</body>
+</html>
