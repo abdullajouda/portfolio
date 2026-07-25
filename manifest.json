@@ -1,9 +1,18 @@
 {
-  "name": "Abdulla Jouda — Portfolio",
-  "short_name": "Portfolio",
+  "name": "Abdulla Jouda — Senior Flutter & Full-Stack Developer",
+  "short_name": "Abdulla Jouda",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0f1221",
-  "theme_color": "#5b46f6",
-  "description": "Portfolio — Flutter, full-stack, and architecture work."
+  "background_color": "#fbfaf7",
+  "theme_color": "#ebddc5",
+  "description": "Lead full-stack engineer building fintech-grade mobile and web products, end to end.",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }
