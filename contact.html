@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Inter:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="css/styles.css?v=d82b3a5">
+<link rel="stylesheet" href="css/styles.css?v=057d3c6">
 <script>
   (function () {
     try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
@@ -82,12 +82,18 @@
       </ul>
 
       <div class="nav-actions">
-        <a class="lang-switch" href="ar/contact.html" lang="ar" hreflang="ar">عربي</a>
         <a class="btn btn--secondary btn--sm nav-resume" data-site-link="resume" href="#" hidden>Resume</a>
-        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
-          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-        </button>
+        <div class="prefs" role="group" aria-label="Language and theme">
+          <span class="prefs__lang" role="group" aria-label="Language">
+            <span class="prefs__opt is-on" lang="en" aria-current="true">EN</span>
+            <a class="prefs__opt" href="ar/contact.html" lang="ar" hreflang="ar">عربي</a>
+          </span>
+          <span class="prefs__sep" aria-hidden="true"></span>
+          <button class="prefs__theme" type="button" data-theme-toggle aria-label="Switch colour theme">
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          </button>
+        </div>
         <button class="icon-btn nav-toggle" type="button" data-nav-open aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
         </button>
@@ -245,8 +251,8 @@
   </div>
 </footer>
 
-<script src="js/site-config.js?v=d82b3a5"></script>
-<script src="js/screens.js?v=d82b3a5"></script>
-<script src="js/site.js?v=d82b3a5"></script>
+<script src="js/site-config.js?v=057d3c6"></script>
+<script src="js/screens.js?v=057d3c6"></script>
+<script src="js/site.js?v=057d3c6"></script>
 </body>
 </html>
