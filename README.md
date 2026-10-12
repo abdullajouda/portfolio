@@ -15,7 +15,10 @@ css/styles.css      Design tokens, components, phone frames, mock app UI
 js/site-config.js   Your links, details and app screenshots (the file you routinely edit)
 js/screens.js       CSS-drawn app screens shown in the phone frames
 js/site.js          Theme, nav, phone frames, showcase, motion, filters, form
-assets/icon.svg     Monogram used by the web manifest
+assets/icon.svg     Monogram favicon
+assets/*.png        Share image (og-image, 1200×630) and app icons (180/192/512)
+sitemap.xml         Page list for search engines
+robots.txt          Crawl rules (only honoured at a domain root, i.e. with a custom domain)
 ```
 
 ## Design
@@ -64,6 +67,8 @@ hides itself — no dead links, no `mailto:` fallbacks.
 |-----|---------|
 | `email` | Contact form target and every "Email" link |
 | `phone` | Phone row on the contact page. **Empty by default** — a number on a public page gets scraped for spam. Set it to `"+970595921528"` to show it. |
+| `formEndpoint` | Formspree endpoint (`https://formspree.io/f/…`). Set it and the contact form sends messages directly; empty, it opens the visitor's mail app |
+| `booking` | Calendly / Cal.com link — shows **Book a call** on the contact page |
 | `github` | Footer and contact page |
 | `linkedin` | Footer and contact page |
 | `twitter` | Footer and contact page (X or Twitter URL) |

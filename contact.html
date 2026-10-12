@@ -14,15 +14,23 @@
 <meta property="og:description" content="Get in touch with Abdulla Jouda — available for contract and remote Flutter and full-stack roles.">
 <meta property="og:url" content="https://abdullajouda.github.io/portfolio/contact.html">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://abdullajouda.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Abdulla Jouda — Senior Flutter &amp; Full-Stack Developer, with two app screens">
+<meta property="og:site_name" content="Abdulla Jouda">
+<meta name="twitter:image" content="https://abdullajouda.github.io/portfolio/assets/og-image.png">
 <meta name="twitter:title" content="Contact — Abdulla Jouda">
 <meta name="twitter:description" content="Get in touch with Abdulla Jouda — available for contract and remote Flutter and full-stack roles.">
 
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Inter:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="css/styles.css?v=fbb9d34">
+<link rel="stylesheet" href="css/styles.css?v=18983a1">
 <script>
   (function () {
     try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
@@ -152,6 +160,14 @@
                 <span class="contact-row__value">Remote · flexible hours</span>
               </span>
             </div>
+
+            <a class="contact-row" data-site-link="booking" href="#" hidden>
+              <span class="contact-row__icon"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg></span>
+              <span>
+                <span class="contact-row__label">Prefer to talk?</span><br>
+                <span class="contact-row__value">Book a call</span>
+              </span>
+            </a>
           </div>
 
           <h2 class="h3" style="margin-top:var(--sp-7)">Elsewhere</h2>
@@ -165,7 +181,7 @@
         <div>
           <div class="form-card" data-reveal>
           <h2 class="h3">Send a message</h2>
-          <p class="small muted" style="margin-top:var(--sp-2)">
+          <p class="small muted" style="margin-top:var(--sp-2)" data-form-intro>
             This opens your email client with the message pre-filled — no server, no tracking.
           </p>
 
@@ -189,9 +205,14 @@
               <textarea id="cf-message" name="message" rows="6" required></textarea>
               <p class="field__hint">A sentence or two about the project is plenty to start.</p>
             </div>
+            <!-- Spam trap: hidden from people, bots fill it in. -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px">
+              <label for="cf-gotcha">Leave this empty</label>
+              <input id="cf-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <p class="form__note" data-form-note role="status" aria-live="polite" hidden></p>
             <button class="btn btn--primary" type="submit">
-              Open in email client
+              <span data-form-label>Open in email client</span>
               <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
             </button>
           </form>
@@ -220,8 +241,8 @@
   </div>
 </footer>
 
-<script src="js/site-config.js?v=fbb9d34"></script>
-<script src="js/screens.js?v=fbb9d34"></script>
-<script src="js/site.js?v=fbb9d34"></script>
+<script src="js/site-config.js?v=18983a1"></script>
+<script src="js/screens.js?v=18983a1"></script>
+<script src="js/site.js?v=18983a1"></script>
 </body>
 </html>

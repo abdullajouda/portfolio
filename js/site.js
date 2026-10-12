@@ -476,47 +476,101 @@
     if (!form) return;
 
     var note = $("[data-form-note]", form);
+    var submit = $('[type="submit"]', form);
+    var label = $("[data-form-label]", form);
+    var intro = $("[data-form-intro]");
+    var endpoint = lookup("formEndpoint");
+
+    // With an endpoint, the form sends directly instead of opening a mail app.
+    if (endpoint) {
+      if (label) label.textContent = "Send message";
+      if (intro) intro.textContent = "Goes straight to my inbox — no email app needed.";
+    }
 
     function say(message, tone) {
       if (!note) return;
       note.textContent = message;
       note.hidden = false;
-      note.style.background = tone === "error" ? "var(--accent-soft)" : "var(--olive-soft)";
-      note.style.color = tone === "error" ? "var(--accent-text)" : "var(--olive-text)";
+      note.className = "form__note form__note--" + (tone === "error" ? "error" : "ok");
+    }
+
+    function read() {
+      var data = new FormData(form);
+      return {
+        name: String(data.get("name") || "").trim(),
+        email: String(data.get("email") || "").trim(),
+        subject: String(data.get("subject") || "").trim(),
+        message: String(data.get("message") || "").trim(),
+        gotcha: String(data.get("_gotcha") || "")
+      };
+    }
+
+    function viaMailApp(to, f) {
+      var body = f.message + "\n\n—\n" + f.name + "\n" + f.email;
+      window.location.href =
+        "mailto:" + to +
+        "?subject=" + encodeURIComponent(f.subject || "Portfolio enquiry from " + f.name) +
+        "&body=" + encodeURIComponent(body);
+      say("Opening your email client. If nothing happens, write to " + to + " directly.", "ok");
+    }
+
+    function viaEndpoint(f) {
+      submit.disabled = true;
+      if (label) label.textContent = "Sending…";
+
+      fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: f.name,
+          email: f.email,
+          _replyto: f.email,
+          _subject: f.subject || "Portfolio enquiry from " + f.name,
+          message: f.message,
+          _gotcha: f.gotcha
+        })
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          form.reset();
+          say("Thanks, " + f.name.split(" ")[0] + " — your message is on its way. I'll reply to " + f.email + ".", "ok");
+        })
+        .catch(function () {
+          var to = lookup("email");
+          say("That didn't send. Please try again" + (to ? ", or email " + to + " directly." : "."), "error");
+        })
+        .then(function () {
+          submit.disabled = false;
+          if (label) label.textContent = "Send message";
+        });
     }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      var f = read();
+      if (f.gotcha) return; // a bot filled the hidden field
+
+      if (!f.name || !f.message) {
+        say("Please add your name and a message.", "error");
+        return;
+      }
+      if (!isEmail(f.email)) {
+        say("That email address doesn't look right.", "error");
+        return;
+      }
+
+      if (endpoint) {
+        viaEndpoint(f);
+        return;
+      }
 
       var to = lookup("email");
       if (!to) {
         say("No contact address is configured yet.", "error");
         return;
       }
-
-      var data = new FormData(form);
-      var name = String(data.get("name") || "").trim();
-      var from = String(data.get("email") || "").trim();
-      var subject = String(data.get("subject") || "").trim();
-      var message = String(data.get("message") || "").trim();
-
-      if (!name || !message) {
-        say("Please add your name and a message.", "error");
-        return;
-      }
-      if (!isEmail(from)) {
-        say("That email address doesn't look right.", "error");
-        return;
-      }
-
-      var body = message + "\n\n—\n" + name + "\n" + from;
-      var href =
-        "mailto:" + to +
-        "?subject=" + encodeURIComponent(subject || "Portfolio enquiry from " + name) +
-        "&body=" + encodeURIComponent(body);
-
-      window.location.href = href;
-      say("Opening your email client. If nothing happens, write to " + to + " directly.", "ok");
+      viaMailApp(to, f);
     });
   })();
 

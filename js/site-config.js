@@ -17,6 +17,16 @@ window.SITE_CONFIG = {
    */
   phone: "",
 
+  /**
+   * Contact form delivery. Paste a Formspree endpoint (e.g.
+   * "https://formspree.io/f/abcdwxyz") and the form sends messages straight to
+   * your inbox. Left empty, the form falls back to opening the visitor's mail app.
+   */
+  formEndpoint: "",
+
+  /** Scheduling link (Calendly, Cal.com, …) — shows "Book a call" on the contact page */
+  booking: "",
+
   /** Social — each one hides itself while empty */
   github: "https://github.com/abdullajouda",
   linkedin: "",

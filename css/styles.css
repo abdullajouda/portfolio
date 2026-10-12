@@ -27,6 +27,8 @@
   --olive: #0e8a7e;
   --olive-soft: #d8f2ee;
   --olive-text: #0b6158;
+  --danger-soft: #fde8e8;
+  --danger-text: #b42318;
 
   --shadow-sm: 0 1px 2px rgb(40 30 15 / .06), 0 1px 1px rgb(40 30 15 / .04);
   --shadow-md: 0 10px 30px -12px rgb(40 30 15 / .18), 0 2px 6px -2px rgb(40 30 15 / .06);
@@ -74,6 +76,8 @@
   --olive: #4fd1c5;
   --olive-soft: #0f2a28;
   --olive-text: #7fe0d6;
+  --danger-soft: #3a1514;
+  --danger-text: #fda29b;
   --shadow-sm: 0 1px 2px rgb(0 0 0 / .4);
   --shadow-md: 0 10px 30px -12px rgb(0 0 0 / .6);
   --shadow-lg: 0 40px 80px -30px rgb(0 0 0 / .8), 0 18px 36px -18px rgb(0 0 0 / .6);
@@ -750,6 +754,9 @@ a.contact-row:hover .contact-row__value { color: var(--accent-text); }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px var(--accent-soft); }
 .field__hint { font-size: 13px; color: var(--muted); }
 .form__note { padding: 12px 16px; border-radius: 12px; font-size: 14px; }
+.form__note--ok { background: var(--olive-soft); color: var(--olive-text); }
+.form__note--error { background: var(--danger-soft); color: var(--danger-text); }
+.btn:disabled { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
 
 /* ------------------------------------------------------------ reveal */
 
