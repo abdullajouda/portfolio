@@ -25,6 +25,15 @@
     }, window.SITE_CONFIG || {});
   }
 
+  /* ---------------------------------------------------------------- i18n */
+
+  var AR = (root.getAttribute("lang") || "").indexOf("ar") === 0;
+
+  /** Pick the English or Arabic variant of a UI string. */
+  function t(en, ar) { return AR ? ar : en; }
+
+  var FILTER_AR = { fintech: "التقنية المالية", mobile: "الجوال", personal: "الشخصية" };
+
   function isEmail(value) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
@@ -47,7 +56,9 @@
     function apply(next) {
       root.dataset.theme = next;
       toggles.forEach(function (btn) {
-        btn.setAttribute("aria-label", next === "dark" ? "Switch to light theme" : "Switch to dark theme");
+        btn.setAttribute("aria-label", next === "dark"
+          ? t("Switch to light theme", "التبديل إلى الوضع الفاتح")
+          : t("Switch to dark theme", "التبديل إلى الوضع الداكن"));
       });
     }
 
@@ -172,7 +183,7 @@
 
   function screenLabel(key) {
     var parts = key.split("/");
-    return (APP_NAMES[parts[0]] || parts[0]) + " — " + parts[1] + " screen";
+    return (APP_NAMES[parts[0]] || parts[0]) + " — " + t(parts[1] + " screen", "شاشة " + parts[1]);
   }
 
   /** Fill a screen container with the configured screenshot, or the CSS mock. */
@@ -434,8 +445,9 @@
       if (!status) return;
       status.textContent =
         label === "all"
-          ? "Showing all " + count + " projects."
-          : "Showing " + count + (count === 1 ? " project" : " projects") + " tagged " + label + ".";
+          ? t("Showing all " + count + " projects.", "عرض جميع المشاريع (" + count + ").")
+          : t("Showing " + count + (count === 1 ? " project" : " projects") + " tagged " + label + ".",
+              "عرض " + count + " من مشاريع " + (FILTER_AR[label] || label) + ".");
     }
 
     function apply(tag, animate) {
@@ -483,8 +495,8 @@
 
     // With an endpoint, the form sends directly instead of opening a mail app.
     if (endpoint) {
-      if (label) label.textContent = "Send message";
-      if (intro) intro.textContent = "Goes straight to my inbox — no email app needed.";
+      if (label) label.textContent = t("Send message", "إرسال الرسالة");
+      if (intro) intro.textContent = t("Goes straight to my inbox — no email app needed.", "تصل الرسالة مباشرة إلى بريدي — دون الحاجة إلى تطبيق بريد.");
     }
 
     function say(message, tone) {
@@ -509,14 +521,15 @@
       var body = f.message + "\n\n—\n" + f.name + "\n" + f.email;
       window.location.href =
         "mailto:" + to +
-        "?subject=" + encodeURIComponent(f.subject || "Portfolio enquiry from " + f.name) +
+        "?subject=" + encodeURIComponent(f.subject || t("Portfolio enquiry from ", "استفسار من الموقع — ") + f.name) +
         "&body=" + encodeURIComponent(body);
-      say("Opening your email client. If nothing happens, write to " + to + " directly.", "ok");
+      say(t("Opening your email client. If nothing happens, write to " + to + " directly.",
+            "جارٍ فتح تطبيق البريد. إن لم يحدث شيء، راسلني مباشرة على " + to + "."), "ok");
     }
 
     function viaEndpoint(f) {
       submit.disabled = true;
-      if (label) label.textContent = "Sending…";
+      if (label) label.textContent = t("Sending…", "جارٍ الإرسال…");
 
       fetch(endpoint, {
         method: "POST",
@@ -525,7 +538,7 @@
           name: f.name,
           email: f.email,
           _replyto: f.email,
-          _subject: f.subject || "Portfolio enquiry from " + f.name,
+          _subject: f.subject || t("Portfolio enquiry from ", "استفسار من الموقع — ") + f.name,
           message: f.message,
           _gotcha: f.gotcha
         })
@@ -533,15 +546,17 @@
         .then(function (res) {
           if (!res.ok) throw new Error("HTTP " + res.status);
           form.reset();
-          say("Thanks, " + f.name.split(" ")[0] + " — your message is on its way. I'll reply to " + f.email + ".", "ok");
+          say(t("Thanks, " + f.name.split(" ")[0] + " — your message is on its way. I'll reply to " + f.email + ".",
+                "شكرًا " + f.name.split(" ")[0] + " — وصلت رسالتك، وسأرد على " + f.email + "."), "ok");
         })
         .catch(function () {
           var to = lookup("email");
-          say("That didn't send. Please try again" + (to ? ", or email " + to + " directly." : "."), "error");
+          say(t("That didn't send. Please try again" + (to ? ", or email " + to + " directly." : "."),
+                "تعذّر الإرسال. حاول مرة أخرى" + (to ? "، أو راسلني مباشرة على " + to + "." : ".")), "error");
         })
         .then(function () {
           submit.disabled = false;
-          if (label) label.textContent = "Send message";
+          if (label) label.textContent = t("Send message", "إرسال الرسالة");
         });
     }
 
@@ -552,11 +567,11 @@
       if (f.gotcha) return; // a bot filled the hidden field
 
       if (!f.name || !f.message) {
-        say("Please add your name and a message.", "error");
+        say(t("Please add your name and a message.", "يرجى كتابة اسمك ورسالتك."), "error");
         return;
       }
       if (!isEmail(f.email)) {
-        say("That email address doesn't look right.", "error");
+        say(t("That email address doesn't look right.", "يبدو أن البريد الإلكتروني غير صحيح."), "error");
         return;
       }
 
@@ -567,7 +582,7 @@
 
       var to = lookup("email");
       if (!to) {
-        say("No contact address is configured yet.", "error");
+        say(t("No contact address is configured yet.", "لم يُضبط عنوان للتواصل بعد."), "error");
         return;
       }
       viaMailApp(to, f);

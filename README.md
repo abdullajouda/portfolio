@@ -11,6 +11,7 @@ projects.html       Work — filterable project list
 experience.html     Experience — roles, skills matrix, education, certs
 contact.html        Contact — direct details and a mailto form
 404.html            Not-found page
+ar/                 Arabic (RTL) version of the four pages — same CSS/JS, own copy
 css/styles.css      Design tokens, components, phone frames, mock app UI
 js/site-config.js   Your links, details and app screenshots (the file you routinely edit)
 js/screens.js       CSS-drawn app screens shown in the phone frames
@@ -30,6 +31,18 @@ italic accents in Instrument Serif, body in Inter, labels in JetBrains Mono.
 
 The site always opens in light. A dark theme is one click away in the header and
 the choice persists in `localStorage`.
+
+### Arabic version
+
+`ar/` holds right-to-left copies of every page, linked both ways by the
+**عربي / EN** switch in the header and by `hreflang` tags. Arabic type is
+Alexandria (headings), IBM Plex Sans Arabic (body) and Amiri (accent words),
+set under `html[lang="ar"]` in `styles.css`. Layout uses logical properties
+(`padding-inline-start`, `inset-inline-*`), so one stylesheet serves both
+directions; phone mocks always render left-to-right. UI strings produced by
+`site.js` (form messages, filter status) switch on the page's `lang`.
+
+When you edit copy on an English page, mirror it in `ar/`.
 
 ### Motion
 

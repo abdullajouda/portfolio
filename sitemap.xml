@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://abdullajouda.github.io/portfolio/</loc><lastmod>2026-10-12</lastmod><priority>1.0</priority></url>
-  <url><loc>https://abdullajouda.github.io/portfolio/projects.html</loc><lastmod>2026-10-12</lastmod><priority>0.9</priority></url>
-  <url><loc>https://abdullajouda.github.io/portfolio/experience.html</loc><lastmod>2026-10-12</lastmod><priority>0.8</priority></url>
-  <url><loc>https://abdullajouda.github.io/portfolio/contact.html</loc><lastmod>2026-10-12</lastmod><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/ar/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/projects.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/projects.html"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/ar/projects.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/projects.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/projects.html"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/experience.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/experience.html"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/ar/experience.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/experience.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/experience.html"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/contact.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/contact.html"/>
+  </url>
+  <url>
+    <loc>https://abdullajouda.github.io/portfolio/ar/contact.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://abdullajouda.github.io/portfolio/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://abdullajouda.github.io/portfolio/ar/contact.html"/>
+  </url>
 </urlset>
