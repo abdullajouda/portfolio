@@ -19,14 +19,14 @@
   --line: #e6e1d6;
   --line-strong: #d4ccbb;
 
-  /* Accent — terracotta from the printed resume.
+  /* Accent — Flutter blue.
      --accent for large marks and fills, --accent-text for body-size text (AA). */
-  --accent: #d0652a;
-  --accent-text: #9f4517;
-  --accent-soft: #fbe8db;
-  --olive: #5f6b3a;
-  --olive-soft: #e8ecd6;
-  --olive-text: #4a5429;
+  --accent: #0175c2;
+  --accent-text: #02569b;
+  --accent-soft: #dcefff;
+  --olive: #0e8a7e;
+  --olive-soft: #d8f2ee;
+  --olive-text: #0b6158;
 
   --shadow-sm: 0 1px 2px rgb(40 30 15 / .06), 0 1px 1px rgb(40 30 15 / .04);
   --shadow-md: 0 10px 30px -12px rgb(40 30 15 / .18), 0 2px 6px -2px rgb(40 30 15 / .06);
@@ -68,12 +68,12 @@
   --muted: #a39d90;
   --line: #2c2923;
   --line-strong: #3d3930;
-  --accent: #e57e43;
-  --accent-text: #f0995f;
-  --accent-soft: #3a2416;
-  --olive: #a8b67a;
-  --olive-soft: #262a19;
-  --olive-text: #c3cf98;
+  --accent: #13b9fd;
+  --accent-text: #54c5f8;
+  --accent-soft: #0b2a3d;
+  --olive: #4fd1c5;
+  --olive-soft: #0f2a28;
+  --olive-text: #7fe0d6;
   --shadow-sm: 0 1px 2px rgb(0 0 0 / .4);
   --shadow-md: 0 10px 30px -12px rgb(0 0 0 / .6);
   --shadow-lg: 0 40px 80px -30px rgb(0 0 0 / .8), 0 18px 36px -18px rgb(0 0 0 / .6);
@@ -331,9 +331,9 @@ ul, ol { padding: 0; list-style: none; }
   position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55;
   animation: drift 18s var(--ease-in-out) infinite alternate;
 }
-.blob--a { width: 520px; height: 520px; background: #f6c9a8; top: -160px; right: -80px; }
-.blob--b { width: 420px; height: 420px; background: #dfe5c2; bottom: -160px; left: -120px; animation-delay: -6s; animation-duration: 22s; }
-.blob--c { width: 300px; height: 300px; background: #f3dcc8; top: 40%; left: 45%; animation-delay: -12s; opacity: .4; }
+.blob--a { width: 520px; height: 520px; background: #b9e2fc; top: -160px; right: -80px; }
+.blob--b { width: 420px; height: 420px; background: #cfe7f7; bottom: -160px; left: -120px; animation-delay: -6s; animation-duration: 22s; }
+.blob--c { width: 300px; height: 300px; background: #a8dcfb; top: 40%; left: 45%; animation-delay: -12s; opacity: .4; }
 [data-theme="dark"] .blob { opacity: .14; }
 @keyframes drift {
   0% { transform: translate3d(0, 0, 0) scale(1); }

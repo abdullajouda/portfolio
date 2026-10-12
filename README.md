@@ -20,9 +20,9 @@ assets/icon.svg     Monogram used by the web manifest
 
 ## Design
 
-Light-first. Warm paper `#f7f5f0`, near-black ink `#17150f`, and the terracotta
-accent from the printed resume (`--accent` for large marks, `--accent-text` for
-body-size text so every pair clears WCAG AA). Headings in Bricolage Grotesque,
+Light-first. Warm paper `#f7f5f0`, near-black ink `#17150f`, and Flutter blue as
+the accent: `--accent` `#0175C2` for large marks and fills, `--accent-text`
+`#02569B` for body-size text so every pair clears WCAG AA, and `#13B9FD` in dark mode. Headings in Bricolage Grotesque,
 italic accents in Instrument Serif, body in Inter, labels in JetBrains Mono.
 
 The site always opens in light. A dark theme is one click away in the header and
