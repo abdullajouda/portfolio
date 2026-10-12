@@ -102,6 +102,10 @@ python3 -m http.server 8000
 - Project cards live in `projects.html`. Each `<article class="project">` carries a
   `data-tags` attribute (`fintech`, `mobile`, `personal`) that drives the filters —
   add a tag to the article and a matching `<button data-filter="...">` to expose it.
+- CSS and JS links carry a `?v=…` version so browsers pick up changes immediately
+  (GitHub Pages caches assets for 10 minutes). After editing a stylesheet or script,
+  bump it across the pages, e.g. to the latest commit hash:
+  `sed -i -E "s/\?v=[a-z0-9]+/?v=$(git rev-parse --short HEAD)/g" *.html`
 - Spacing, colour and type all flow from the custom properties at the top of
   `css/styles.css`. Change a token there rather than patching individual rules.
 - The SVG icon sprite is inlined per page (`<symbol id="i-*">`) so the site works
