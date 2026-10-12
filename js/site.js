@@ -1,15 +1,17 @@
 /**
- * Shared behaviour: theme toggle, mobile nav, config-driven links,
- * project filters, contact form, scroll reveal.
+ * Shared behaviour: theme, header, mobile nav, config-driven links, phone
+ * frames, app showcase, motion (split text, reveal, count-up, parallax,
+ * timeline fill), project filters and the contact form.
  *
- * No dependencies, no build step. Runs on every page; each module
- * no-ops when its markup isn't present.
+ * No dependencies, no build step. Runs on every page; each module no-ops
+ * when its markup isn't present.
  */
 (function () {
   "use strict";
 
   var doc = document;
   var root = doc.documentElement;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------------------------------------------------------------- utils */
 
@@ -27,6 +29,15 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
+  function onScrollFrame(fn) {
+    var queued = false;
+    function tick() { queued = false; fn(); }
+    function request() { if (!queued) { queued = true; requestAnimationFrame(tick); } }
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    fn();
+  }
+
   /* ---------------------------------------------------------------- theme */
 
   (function theme() {
@@ -35,12 +46,8 @@
 
     function apply(next) {
       root.dataset.theme = next;
-      try { localStorage.setItem("theme", next); } catch (e) {}
       toggles.forEach(function (btn) {
-        btn.setAttribute(
-          "aria-label",
-          next === "dark" ? "Switch to light theme" : "Switch to dark theme"
-        );
+        btn.setAttribute("aria-label", next === "dark" ? "Switch to light theme" : "Switch to dark theme");
       });
     }
 
@@ -48,8 +55,24 @@
 
     toggles.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        apply(root.dataset.theme === "dark" ? "light" : "dark");
+        var next = root.dataset.theme === "dark" ? "light" : "dark";
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        apply(next);
       });
+    });
+  })();
+
+  /* ------------------------------------------------- header + scroll bar */
+
+  (function header() {
+    var bar = $(".scroll-progress");
+    onScrollFrame(function () {
+      var y = window.scrollY;
+      root.classList.toggle("is-scrolled", y > 12);
+      if (bar) {
+        var max = doc.documentElement.scrollHeight - window.innerHeight;
+        bar.style.setProperty("--progress", max > 0 ? (y / max).toFixed(4) : 0);
+      }
     });
   })();
 
@@ -143,6 +166,260 @@
     });
   })();
 
+  /* --------------------------------------------------------------- phones */
+
+  var APP_NAMES = { hisab: "Hisab", wintoo: "Wintoo", forge: "FORGE", lifeos: "LifeOS", athkar: "Athkar", coinplus: "CoinPlus" };
+
+  function screenLabel(key) {
+    var parts = key.split("/");
+    return (APP_NAMES[parts[0]] || parts[0]) + " — " + parts[1] + " screen";
+  }
+
+  /** Fill a screen container with the configured screenshot, or the CSS mock. */
+  function fillScreen(screen, key) {
+    var shot = (lookup("screenshots") || {})[key];
+    if (shot) {
+      var img = doc.createElement("img");
+      img.src = shot;
+      img.alt = screenLabel(key);
+      img.loading = "lazy";
+      img.decoding = "async";
+      screen.appendChild(img);
+    } else if (window.renderScreen) {
+      screen.innerHTML = window.renderScreen(key);
+    }
+  }
+
+  function buildPhone(el) {
+    var key = el.getAttribute("data-phone");
+    el.classList.add("phone");
+    el.setAttribute("role", "img");
+    el.setAttribute("aria-label", screenLabel(key));
+    el.innerHTML = '<div class="phone__screen"></div><span class="phone__island"></span><span class="phone__glare"></span>';
+    fillScreen(el.firstChild, key);
+  }
+
+  function makePhone(key, extraClass) {
+    var el = doc.createElement("div");
+    el.setAttribute("data-phone", key);
+    if (extraClass) el.className = extraClass;
+    buildPhone(el);
+    return el;
+  }
+
+  (function browsers() {
+    $$("[data-browser]").forEach(function (el) {
+      var key = el.getAttribute("data-browser");
+      el.classList.add("browser");
+      el.setAttribute("role", "img");
+      el.setAttribute("aria-label", screenLabel(key));
+      el.innerHTML = '<div class="browser__bar"><i></i><i></i><i></i><span class="browser__url"></span></div><div class="browser__screen"></div>';
+      $(".browser__url", el).textContent = el.getAttribute("data-url") || "";
+      fillScreen($(".browser__screen", el), key);
+    });
+  })();
+
+  /* ------------------------------------------------------------- showcase */
+
+  (function showcase() {
+    var wrap = $("[data-showcase]");
+    if (!wrap) return;
+
+    var steps = $$("[data-step]", wrap);
+    var stage = $("[data-stage]", wrap);
+    var counter = $("[data-stage-count]", wrap);
+    var dots = $("[data-stage-dots]", wrap);
+    var sets = [];
+
+    steps.forEach(function (step, i) {
+      var front = step.getAttribute("data-front");
+      var back = step.getAttribute("data-back");
+      var app = front.split("/")[0];
+      var color = (window.APP_COLORS || {})[app] || "";
+      step.style.setProperty("--app", color);
+
+      // Inline pair for small screens, where the sticky stage is hidden.
+      var inline = $(".step__phones", step);
+      if (inline) {
+        inline.appendChild(makePhone(back, "phone--back"));
+        inline.appendChild(makePhone(front, "phone--front"));
+      }
+
+      if (stage) {
+        var set = doc.createElement("div");
+        set.className = "stage__set";
+        set.appendChild(makePhone(back, "phone--back"));
+        set.appendChild(makePhone(front, "phone--front"));
+        set.dataset.color = color;
+        stage.appendChild(set);
+        sets.push(set);
+      }
+      if (dots) dots.appendChild(doc.createElement("i"));
+    });
+
+    var active = -1;
+    function activate(i) {
+      if (i === active) return;
+      active = i;
+      steps.forEach(function (s, n) { s.classList.toggle("is-active", n === i); });
+      sets.forEach(function (s, n) {
+        s.classList.toggle("is-active", n === i);
+        s.classList.toggle("is-past", n < i);
+        if (n === i) $$(".phone", s).forEach(function (p) { p.classList.add("is-live"); });
+      });
+      if (stage && sets[i]) stage.style.setProperty("--stage-color", sets[i].dataset.color);
+      if (counter) counter.textContent = String(i + 1).padStart(2, "0") + " / " + String(steps.length).padStart(2, "0");
+      if (dots) $$("i", dots).forEach(function (d, n) { d.classList.toggle("on", n === i); });
+    }
+
+    activate(0);
+
+    if (!("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) activate(steps.indexOf(entry.target));
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    steps.forEach(function (s) { io.observe(s); });
+  })();
+
+  // Build every remaining declarative phone, now that showcase phones exist.
+  $$("[data-phone]:not(.phone)").forEach(buildPhone);
+
+  /* --------------------------------------------- screens animate when seen */
+
+  (function liveScreens() {
+    var frames = $$(".phone, .browser").filter(function (el) { return !el.closest(".stage__set"); });
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      $$(".phone, .browser").forEach(function (el) { el.classList.add("is-live"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-live");
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    frames.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ------------------------------------------------------- split headline */
+
+  (function splitText() {
+    $$("[data-split]").forEach(function (el) {
+      if (reduceMotion) return;
+      var i = 0;
+      // Walk text nodes so inline markup (e.g. <em>) keeps its styling.
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+          if (child.nodeType === 3) {
+            var frag = doc.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(doc.createTextNode(" ")); return; }
+              var w = doc.createElement("span");
+              w.className = "w";
+              var inner = doc.createElement("span");
+              inner.style.setProperty("--i", i++);
+              inner.textContent = part;
+              w.appendChild(inner);
+              frag.appendChild(w);
+            });
+            child.parentNode.replaceChild(frag, child);
+          } else if (child.nodeType === 1) {
+            walk(child);
+          }
+        });
+      })(el);
+      el.setAttribute("aria-label", el.textContent.replace(/\s+/g, " ").trim());
+      el.classList.add("split");
+    });
+  })();
+
+  /* ------------------------------------------------------------- count-up */
+
+  (function countUp() {
+    var els = $$("[data-count]");
+    if (!els.length) return;
+
+    function render(el, value) {
+      var decimals = +(el.getAttribute("data-decimals") || 0);
+      el.firstChild.textContent = (el.getAttribute("data-prefix") || "") + value.toFixed(decimals);
+    }
+
+    els.forEach(function (el) {
+      // First text node holds the number; any <em> suffix stays untouched.
+      if (!el.firstChild || el.firstChild.nodeType !== 3) el.insertBefore(doc.createTextNode(""), el.firstChild);
+    });
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      els.forEach(function (el) { render(el, +el.getAttribute("data-count")); });
+      return;
+    }
+
+    els.forEach(function (el) { render(el, 0); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        var el = entry.target;
+        var target = +el.getAttribute("data-count");
+        var start = performance.now();
+        var dur = 1600;
+        (function frame(now) {
+          var t = Math.min(1, (now - start) / dur);
+          var eased = 1 - Math.pow(1 - t, 4);
+          render(el, target * eased);
+          if (t < 1) requestAnimationFrame(frame);
+        })(start);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  /* ------------------------------------------------------ pointer parallax */
+
+  (function parallax() {
+    var scene = $("[data-parallax-scene]");
+    if (!scene || reduceMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+    var layers = $$("[data-depth]", scene);
+    var tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+
+    function loop() {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      layers.forEach(function (el) {
+        var d = +el.getAttribute("data-depth");
+        el.style.setProperty("--px", (cx * d).toFixed(2) + "px");
+        el.style.setProperty("--py", (cy * d).toFixed(2) + "px");
+      });
+      if (Math.abs(tx - cx) > 0.05 || Math.abs(ty - cy) > 0.05) requestAnimationFrame(loop);
+      else running = false;
+    }
+
+    window.addEventListener("pointermove", function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      ty = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }, { passive: true });
+  })();
+
+  /* ------------------------------------------------------- timeline fill */
+
+  (function timeline() {
+    var line = $("[data-timeline]");
+    if (!line) return;
+    onScrollFrame(function () {
+      var r = line.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = (vh * 0.6 - r.top) / r.height;
+      line.style.setProperty("--fill", Math.max(0, Math.min(1, p)).toFixed(4));
+    });
+  })();
+
   /* ------------------------------------------------------ project filters */
 
   (function filters() {
@@ -161,13 +438,21 @@
           : "Showing " + count + (count === 1 ? " project" : " projects") + " tagged " + label + ".";
     }
 
-    function apply(tag) {
+    function apply(tag, animate) {
       var shown = 0;
       cards.forEach(function (card) {
         var tags = (card.getAttribute("data-tags") || "").split(/\s+/);
         var match = tag === "all" || tags.indexOf(tag) !== -1;
         card.hidden = !match;
-        if (match) shown++;
+        card.classList.remove("is-filtered-in");
+        if (match) {
+          if (animate && !reduceMotion) {
+            void card.offsetWidth; // restart the animation
+            card.style.animationDelay = shown * 70 + "ms";
+            card.classList.add("is-filtered-in", "is-visible");
+          }
+          shown++;
+        }
       });
       buttons.forEach(function (btn) {
         btn.setAttribute("aria-pressed", btn.getAttribute("data-filter") === tag ? "true" : "false");
@@ -177,11 +462,11 @@
 
     buttons.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        apply(btn.getAttribute("data-filter"));
+        apply(btn.getAttribute("data-filter"), true);
       });
     });
 
-    apply("all");
+    apply("all", false);
   })();
 
   /* --------------------------------------------------------- contact form */
@@ -238,11 +523,19 @@
   /* ---------------------------------------------------------- reveal on scroll */
 
   (function reveal() {
-    if (!("IntersectionObserver" in window)) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    var targets = $$(".section, .project, .card, .stat");
+    var targets = $$("[data-reveal], [data-stagger] > *, .role");
     if (!targets.length) return;
+
+    $$("[data-stagger]").forEach(function (group) {
+      Array.prototype.slice.call(group.children).forEach(function (child, i) {
+        child.style.setProperty("--i", i);
+      });
+    });
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      targets.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
 
     targets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -254,7 +547,7 @@
           io.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
 
     targets.forEach(function (el) { io.observe(el); });

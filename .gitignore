@@ -1,5 +1,6 @@
 .DS_Store
 Thumbs.db
+._*
 
 # Local working files, not part of the site
 digital-profile-playbook.md

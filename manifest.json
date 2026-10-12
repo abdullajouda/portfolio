@@ -4,8 +4,8 @@
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#fbfaf7",
-  "theme_color": "#ebddc5",
+  "background_color": "#f7f5f0",
+  "theme_color": "#f7f5f0",
   "description": "Lead full-stack engineer building fintech-grade mobile and web products, end to end.",
   "icons": [
     {

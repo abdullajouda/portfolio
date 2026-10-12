@@ -5,29 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page not found — Abdulla Jouda</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#f7f5f0">
+<link rel="icon" href="/portfolio/assets/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Inter:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
 <link rel="stylesheet" href="/portfolio/css/styles.css">
 <script>
   (function () {
-    try {
-      var t = localStorage.getItem("theme");
-      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.dataset.theme = t;
-    } catch (e) {}
+    try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
   })();
 </script>
 </head>
 <body>
-<main id="main" style="display:grid;place-items:center;min-height:100svh;text-align:center">
+<main id="main" class="hero" style="display:grid;place-items:center;min-height:100svh;text-align:center;padding:24px">
+  <div class="hero__bg" aria-hidden="true"><span class="blob blob--a"></span><span class="blob blob--b"></span></div>
   <div class="container">
-    <p class="eyebrow">404</p>
-    <h1 class="h1" style="margin-top:var(--sp-4)">That page doesn't exist</h1>
-    <p class="lede" style="margin:var(--sp-4) auto 0">
+    <p class="display fade-up" style="font-size:clamp(96px,20vw,220px)">4<span class="serif accent">0</span>4</p>
+    <h1 class="h2 fade-up" style="--d:150ms;margin-top:var(--sp-4)">That page doesn't exist</h1>
+    <p class="lede fade-up" style="--d:300ms;margin:var(--sp-4) auto 0">
       It may have been renamed or moved. The work is all still here.
     </p>
-    <p style="margin-top:var(--sp-6);display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap">
+    <p class="fade-up" style="--d:450ms;margin-top:var(--sp-6);display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap">
       <a class="btn btn--primary" href="/portfolio/">Back home</a>
       <a class="btn btn--secondary" href="/portfolio/projects.html">See the work</a>
     </p>

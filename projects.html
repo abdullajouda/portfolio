@@ -5,41 +5,50 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Work — Abdulla Jouda</title>
 <meta name="description" content="Selected projects: a multi-currency double-entry accounting SaaS, a 200K-line social commerce app, offline-first Flutter products and 50+ shipped client apps.">
-<meta name="theme-color" content="#ebddc5" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+<meta name="author" content="Abdulla Hussam Jouda">
+<meta name="theme-color" content="#f7f5f0">
 <link rel="canonical" href="https://abdullajouda.github.io/portfolio/projects.html">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Work — Abdulla Jouda">
-<meta property="og:description" content="Fintech platforms, offline-first mobile products, and 50+ shipped client apps.">
+<meta property="og:description" content="Selected projects: a multi-currency double-entry accounting SaaS, a 200K-line social commerce app, offline-first Flutter products and 50+ shipped client apps.">
+<meta property="og:url" content="https://abdullajouda.github.io/portfolio/projects.html">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Work — Abdulla Jouda">
+<meta name="twitter:description" content="Selected projects: a multi-currency double-entry accounting SaaS, a 200K-line social commerce app, offline-first Flutter products and 50+ shipped client apps.">
 
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Inter:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <script>
   (function () {
-    try {
-      var t = localStorage.getItem("theme");
-      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.dataset.theme = t;
-    } catch (e) {}
+    try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
   })();
 </script>
+
 </head>
 
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <svg style="display:none" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 17 9 5 9-5"/><path d="m3 12 9 5 9-5"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="7" rx="2"/><rect x="2" y="14" width="20" height="7" rx="2"/><path d="M6 6.5h.01M6 17.5h.01"/></symbol>
+  <symbol id="i-ship" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="m5 8 7-3 7 3"/><path d="M4 13h16l-1.8 6.3A3 3 0 0 1 15.3 21H8.7a3 3 0 0 1-2.9-1.7L4 13Z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
 </svg>
 
 <header class="site-header">
@@ -49,12 +58,14 @@
         <span class="monogram" aria-hidden="true">AJ</span>
         <span>Abdulla Jouda</span>
       </a>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html" aria-current="page">Work</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+
       <div class="nav-actions">
         <a class="btn btn--secondary btn--sm nav-resume" data-site-link="resume" href="#" hidden>Resume</a>
         <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
@@ -72,7 +83,7 @@
 <div class="nav-backdrop" data-nav-backdrop data-nav-close></div>
 <div class="nav-drawer" id="mobile-nav" data-nav-drawer aria-label="Mobile navigation">
   <div class="nav-drawer__head">
-    <span class="mono small muted">MENU</span>
+    <span class="eyebrow">Menu</span>
     <button class="icon-btn" type="button" data-nav-close aria-label="Close menu">
       <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
     </button>
@@ -88,22 +99,22 @@
 
 <main id="main">
 
-  <section class="hero">
+  <section class="hero hero--page">
+    <div class="hero__bg" aria-hidden="true"><span class="blob blob--a"></span><span class="blob blob--b"></span></div>
     <div class="container container--wide">
-      <p class="eyebrow">Work</p>
-      <h1 class="h1" style="margin-top:var(--sp-4)">Things I designed, built and shipped</h1>
-      <p class="lede" style="margin-top:var(--sp-4);max-width:58ch">
-        Mostly end-to-end ownership — architecture through production. A few are client
-        products under NDA-ish constraints, so the detail here is about the engineering
-        rather than screenshots.
+      <p class="eyebrow fade-up">Work</p>
+      <h1 class="display hero__title" data-split>Things I designed, built <span class="serif">and shipped.</span></h1>
+      <p class="lede hero__lede fade-up" style="--d:550ms;max-width:60ch">
+        Mostly end-to-end ownership — architecture through production. Screens shown are
+        illustrative recreations; the engineering detail is the real thing.
       </p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="padding-top:var(--sp-5)">
     <div class="container container--wide">
 
-      <div class="filters" role="group" aria-label="Filter projects">
+      <div class="filters fade-up" style="--d:700ms" role="group" aria-label="Filter projects">
         <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="filter" type="button" data-filter="fintech" aria-pressed="false">Fintech</button>
         <button class="filter" type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
@@ -112,155 +123,167 @@
 
       <p class="small muted" data-filter-status role="status" aria-live="polite" style="margin-bottom:var(--sp-5)"></p>
 
-      <div class="grid" style="gap:var(--sp-5)" data-projects>
+      <div class="projects" data-projects>
 
-        <article class="project" data-tags="fintech mobile">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">Hisab <span>— Accounting &amp; remittance SaaS</span></h2>
-              <p class="project__role">Sole developer and architect, end to end.</p>
-            </div>
-            <span class="pill pill--accent">Lead &amp; architect</span>
+        <article class="project" id="hisab" data-tags="fintech mobile" data-reveal style="--app:#0f766e">
+          <div class="project__media">
+            <div class="fan"><div data-phone="hisab/ledger"></div><div data-phone="hisab/dashboard"></div><div data-phone="hisab/reports"></div></div>
           </div>
-          <ul class="project__points">
-            <li><b>Core accounting</b> — double-entry ledger over transactions, accounts, journal templates and balanced postings, with multi-currency FX rates, revaluation runs and auto-balanced FX trading P&amp;L.</li>
-            <li><b>Reporting &amp; compliance</b> — trial balance, balance sheet, income statement, cash flow and P&amp;L, plus AML flagging, audit trails and tax handling.</li>
-            <li><b>Multi-tenant SaaS</b> — row-level security and least-privilege database roles with user memberships, role management and tokenised invite links.</li>
-            <li><b>Multi-platform client</b> — one Flutter codebase on iOS, Android, macOS, Windows and Web; offline-first via Drift/SQLite with real-time sync and conflict handling.</li>
-            <li><b>Backend &amp; DevOps</b> — Dart/Serverpod API of roughly 30 endpoints, deployed on Fly.io with Docker, Cloudflare and GitHub Actions CI/CD.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">Serverpod</span><span class="tech">PostgreSQL</span><span class="tech">Drift/SQLite</span><span class="tech">Docker</span><span class="tech">Fly.io</span><span class="tech">Cloudflare</span>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Fintech · SaaS</p>
+                <h2 class="project__name">Hisab<span>Accounting &amp; remittance SaaS</span></h2>
+              </div>
+              <span class="pill pill--accent">Lead &amp; architect</span>
+            </div>
+            <p class="project__role">Sole developer and architect, end to end.</p>
+            <ul class="project__points">
+              <li><b>Core accounting</b> — double-entry ledger over transactions, accounts, journal templates and balanced postings, with multi-currency FX rates, revaluation runs and auto-balanced FX trading P&amp;L.</li>
+              <li><b>Reporting &amp; compliance</b> — trial balance, balance sheet, income statement, cash flow and P&amp;L, plus AML flagging, audit trails and tax handling.</li>
+              <li><b>Multi-tenant SaaS</b> — row-level security and least-privilege database roles with user memberships, role management and tokenised invite links.</li>
+              <li><b>Multi-platform client</b> — one Flutter codebase on iOS, Android, macOS, Windows and Web; offline-first via Drift/SQLite with real-time sync and conflict handling.</li>
+              <li><b>Backend &amp; DevOps</b> — Dart/Serverpod API of roughly 30 endpoints, deployed on Fly.io with Docker, Cloudflare and GitHub Actions CI/CD.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">Serverpod</span><span class="tech">PostgreSQL</span><span class="tech">Drift/SQLite</span><span class="tech">Docker</span><span class="tech">Fly.io</span><span class="tech">Cloudflare</span>
+            </div>
           </div>
         </article>
 
-        <article class="project" data-tags="mobile">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">Wintoo <span>— Social commerce marketplace</span></h2>
-              <p class="project__role">Senior Flutter developer · 2025 – current</p>
-            </div>
-            <span class="pill pill--neutral">~200K LOC</span>
+        <article class="project" id="wintoo" data-tags="mobile" data-reveal style="--app:#7c3aed">
+          <div class="project__media">
+            <div class="fan"><div data-phone="wintoo/shop"></div><div data-phone="wintoo/feed"></div><div data-phone="wintoo/chat"></div></div>
           </div>
-          <ul class="project__points">
-            <li><b>Architecture &amp; scale</b> — production app of roughly 950 Dart files spanning a social feed, marketplace, real-time chat and a peer-to-peer job-exchange module ("Hand2Hand"), shipped to iOS and Android.</li>
-            <li><b>Real-time chat</b> — WebSockets plus Firebase (Firestore, Realtime DB, FCM) for live messaging, delivery and read receipts, and push notifications.</li>
-            <li><b>AI job matching</b> — in-app assistant for job-offer search and matching with conversational search and persistent chat history.</li>
-            <li><b>Native plugins &amp; media</b> — two in-house Flutter plugins wrapping a licensed video-editing SDK and a real-time face-filter engine, plus speech-to-text and video trimming.</li>
-            <li><b>Commerce &amp; social</b> — multi-vendor storefronts, cart and checkout, wallet and instalment payments, QR-verified live draws, and a full social layer of posts, stories, short video and challenges.</li>
-            <li><b>Engineering</b> — GetX for state, DI and routing across 100+ screens; Dio with custom interceptors; bilingual Arabic/English RTL localisation; Firebase Auth, Crashlytics and Analytics.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">GetX</span><span class="tech">Firebase</span><span class="tech">WebSockets</span><span class="tech">Dio</span><span class="tech">SQLite</span>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Social commerce · 2025 – now</p>
+                <h2 class="project__name">Wintoo<span>Social commerce marketplace</span></h2>
+              </div>
+              <span class="pill pill--neutral">~200K LOC</span>
+            </div>
+            <p class="project__role">Senior Flutter developer.</p>
+            <ul class="project__points">
+              <li><b>Architecture &amp; scale</b> — production app of roughly 950 Dart files spanning a social feed, marketplace, real-time chat and a peer-to-peer job-exchange module ("Hand2Hand"), shipped to iOS and Android.</li>
+              <li><b>Real-time chat</b> — WebSockets plus Firebase (Firestore, Realtime DB, FCM) for live messaging, delivery and read receipts, and push notifications.</li>
+              <li><b>AI job matching</b> — in-app assistant for job-offer search and matching with conversational search and persistent chat history.</li>
+              <li><b>Native plugins &amp; media</b> — two in-house Flutter plugins wrapping a licensed video-editing SDK and a real-time face-filter engine, plus speech-to-text and video trimming.</li>
+              <li><b>Commerce &amp; social</b> — multi-vendor storefronts, cart and checkout, wallet and instalment payments, QR-verified live draws, and a full social layer of posts, stories, short video and challenges.</li>
+              <li><b>Engineering</b> — GetX for state, DI and routing across 100+ screens; Dio with custom interceptors; bilingual Arabic/English RTL localisation; Firebase Auth, Crashlytics and Analytics.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">GetX</span><span class="tech">Firebase</span><span class="tech">WebSockets</span><span class="tech">Dio</span><span class="tech">SQLite</span>
+            </div>
           </div>
         </article>
 
-        <article class="project" data-tags="fintech">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">CoinPlus <span>— Multi-currency accounting platform</span></h2>
-              <p class="project__role">Full-stack developer · built and maintained solo over 700+ commits and ~20 months</p>
+        <article class="project" id="coinplus" data-tags="fintech" data-reveal style="--app:#c2410c">
+          <div class="project__media">
+            <div data-browser="coinplus/web" data-url="coinplus · dashboard"></div>
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Fintech · Web · 2025 – now</p>
+                <h2 class="project__name">CoinPlus<span>Multi-currency accounting platform</span></h2>
+              </div>
+              <span class="pill pill--neutral">700+ commits</span>
             </div>
-            <span class="pill pill--neutral">2025 – current</span>
-          </div>
-          <ul class="project__points">
-            <li><b>Platform</b> — Laravel 11, Filament 5 and Inertia + React managing clients, suppliers, banks, fund boxes and system accounts with date-based exchange-rate conversion.</li>
-            <li><b>Transaction engine</b> — transfers, internal transfers, income and expense, payments, currency exchange and opening balances, with soft-delete reversal handling and an immutable audit log.</li>
-            <li><b>Access control</b> — role-based permissions (Spatie) with per-resource, per-action authorisation for finance staff, cashiers and admins.</li>
-            <li><b>Offline-first capture</b> — pending transactions cache locally during connectivity loss and auto-sync via REST on reconnect.</li>
-            <li><b>Reporting &amp; API</b> — bearer-token REST API with a consistent JSON contract, plus PDF and Excel export pipelines for reports, balance sheets and vouchers.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Laravel 11</span><span class="tech">Filament 5</span><span class="tech">Inertia/React</span><span class="tech">MySQL</span><span class="tech">Spatie</span><span class="tech">REST</span>
-          </div>
-          <div class="project__links">
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.coinplusCaseStudy" href="#" hidden>
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg>
-            </a>
+            <p class="project__role">Full-stack developer · built and maintained solo across ~20 months.</p>
+            <ul class="project__points">
+              <li><b>Platform</b> — Laravel 11, Filament 5 and Inertia + React managing clients, suppliers, banks, fund boxes and system accounts with date-based exchange-rate conversion.</li>
+              <li><b>Transaction engine</b> — transfers, internal transfers, income and expense, payments, currency exchange and opening balances, with soft-delete reversal handling and an immutable audit log.</li>
+              <li><b>Access control</b> — role-based permissions (Spatie) with per-resource, per-action authorisation for finance staff, cashiers and admins.</li>
+              <li><b>Offline-first capture</b> — pending transactions cache locally during connectivity loss and auto-sync via REST on reconnect.</li>
+              <li><b>Reporting &amp; API</b> — bearer-token REST API with a consistent JSON contract, plus PDF and Excel export pipelines for reports, balance sheets and vouchers.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Laravel 11</span><span class="tech">Filament 5</span><span class="tech">Inertia/React</span><span class="tech">MySQL</span><span class="tech">Spatie</span><span class="tech">REST</span>
+            </div>
+            <div class="project__links">
+              <a class="btn btn--secondary btn--sm" data-site-link="projects.coinplusCaseStudy" href="#" hidden>
+                Case study <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg>
+              </a>
+            </div>
           </div>
         </article>
 
-        <article class="project" data-tags="personal mobile">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">FORGE <span>— Fitness &amp; nutrition tracking</span></h2>
-              <p class="project__role">Solo developer · cross-platform</p>
-            </div>
-            <span class="pill pill--neutral">Personal · 2026</span>
+        <article class="project" id="forge" data-tags="personal mobile" data-reveal style="--app:#f97316">
+          <div class="project__media">
+            <div class="fan"><div data-phone="forge/nutrition"></div><div data-phone="forge/workout"></div><div data-phone="forge/progress"></div></div>
           </div>
-          <ul class="project__points">
-            <li><b>Architecture</b> — feature-first, thin-UI/fat-repository structure with Riverpod state management and go_router navigation.</li>
-            <li><b>Auth &amp; backend</b> — multi-provider sign-in (email, Google, Apple) on Firebase with Firestore, Auth, Crashlytics, Analytics and App Check; offline-first via Drift/SQLite and Hive.</li>
-            <li><b>Training</b> — workout templates, live active-workout tracking backed by Firestore, and a progress dashboard charting body-metric trends.</li>
-            <li><b>Nutrition</b> — food search, macro tracking and daily summaries, plus an AI coaching feature with usage limits and in-app-purchase upgrade prompts.</li>
-            <li><b>Testing</b> — unit and widget tests with mocktail and fake_cloud_firestore, UI kept decoupled from data sources.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Flutter</span><span class="tech">Riverpod</span><span class="tech">go_router</span><span class="tech">Firebase</span><span class="tech">Drift</span><span class="tech">fl_chart</span><span class="tech">IAP</span>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Health · Personal · 2026</p>
+                <h2 class="project__name">FORGE<span>Fitness &amp; nutrition tracking</span></h2>
+              </div>
+              <span class="pill pill--neutral">Personal</span>
+            </div>
+            <p class="project__role">Solo developer · cross-platform.</p>
+            <ul class="project__points">
+              <li><b>Architecture</b> — feature-first, thin-UI/fat-repository structure with Riverpod state management and go_router navigation.</li>
+              <li><b>Auth &amp; backend</b> — multi-provider sign-in (email, Google, Apple) on Firebase with Firestore, Auth, Crashlytics, Analytics and App Check; offline-first via Drift/SQLite and Hive.</li>
+              <li><b>Training</b> — workout templates, live active-workout tracking backed by Firestore, and a progress dashboard charting body-metric trends.</li>
+              <li><b>Nutrition</b> — food search, macro tracking and daily summaries, plus an AI coaching feature with usage limits and in-app-purchase upgrade prompts.</li>
+              <li><b>Testing</b> — unit and widget tests with mocktail and fake_cloud_firestore, UI kept decoupled from data sources.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Flutter</span><span class="tech">Riverpod</span><span class="tech">go_router</span><span class="tech">Firebase</span><span class="tech">Drift</span><span class="tech">fl_chart</span><span class="tech">IAP</span>
+            </div>
           </div>
         </article>
 
-        <article class="project" data-tags="personal mobile fintech">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">LifeOS <span>— Personal life management</span></h2>
-              <p class="project__role">Tasks, budgeting and work-hours tracking unified into one tool.</p>
-            </div>
-            <span class="pill pill--neutral">Personal</span>
+        <article class="project" id="lifeos" data-tags="personal mobile fintech" data-reveal style="--app:#2563eb">
+          <div class="project__media">
+            <div class="fan fan--two"><div data-phone="lifeos/tasks"></div><div data-phone="lifeos/budget"></div></div>
           </div>
-          <ul class="project__points">
-            <li><b>Architecture</b> — GetX for reactive state and Hive for local-first offline storage, with model-based persistence across transactions, tasks and work sessions.</li>
-            <li><b>Budget intelligence</b> — per-category monthly budgets, real-time 80%/100% threshold alerts, and month-over-month spend variance insights.</li>
-            <li><b>Task system</b> — Eisenhower matrix quadrants wired into a streak-based dashboard that combines task completion with budget adherence.</li>
-            <li><b>Time-to-money</b> — hourly-rate work tracking that converts logged hours into income postable directly to the budget.</li>
-            <li><b>Native widgets &amp; sync</b> — Android home-screen widgets in Kotlin, QR-based data transfer, local AES encryption, and Firebase Realtime Database for exchange-rate sync.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Flutter</span><span class="tech">GetX</span><span class="tech">Hive</span><span class="tech">Kotlin</span><span class="tech">Firebase</span><span class="tech">AES</span>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Productivity · Personal</p>
+                <h2 class="project__name">LifeOS<span>Personal life management</span></h2>
+              </div>
+              <span class="pill pill--neutral">Personal</span>
+            </div>
+            <p class="project__role">Tasks, budgeting and work-hours tracking unified into one tool.</p>
+            <ul class="project__points">
+              <li><b>Architecture</b> — GetX for reactive state and Hive for local-first offline storage, with model-based persistence across transactions, tasks and work sessions.</li>
+              <li><b>Budget intelligence</b> — per-category monthly budgets, real-time 80%/100% threshold alerts, and month-over-month spend variance insights.</li>
+              <li><b>Task system</b> — Eisenhower matrix quadrants wired into a streak-based dashboard that combines task completion with budget adherence.</li>
+              <li><b>Time-to-money</b> — hourly-rate work tracking that converts logged hours into income postable directly to the budget.</li>
+              <li><b>Native widgets &amp; sync</b> — Android home-screen widgets in Kotlin, QR-based data transfer, local AES encryption, and Firebase Realtime Database for exchange-rate sync.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Flutter</span><span class="tech">GetX</span><span class="tech">Hive</span><span class="tech">Kotlin</span><span class="tech">Firebase</span><span class="tech">AES</span>
+            </div>
           </div>
         </article>
 
-        <article class="project" data-tags="personal mobile">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">Athkar <span>— Offline-first remembrance app</span></h2>
-              <p class="project__role">Privacy-first, fully offline: multilingual content, habit tracking, local reminders and native widgets.</p>
+        <article class="project" id="athkar" data-tags="personal mobile" data-reveal style="--app:#a07d34">
+          <div class="project__media">
+            <div class="fan fan--two"><div data-phone="athkar/collections"></div><div data-phone="athkar/counter"></div></div>
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <div>
+                <p class="project__kicker"><b>●</b> Offline · Personal · 2026</p>
+                <h2 class="project__name">Athkar<span>Offline-first remembrance app</span></h2>
+              </div>
+              <span class="pill pill--neutral">Personal</span>
             </div>
-            <span class="pill pill--neutral">Personal · 2026</span>
-          </div>
-          <ul class="project__points">
-            <li><b>Architecture</b> — no backend at all; clean separation of content, state and UI, with counters, streaks, bookmarks and settings persisted locally.</li>
-            <li><b>Localisation</b> — content across six languages with automatic English fallback and full RTL layout for Arabic and Urdu.</li>
-            <li><b>Content pipeline</b> — integrated the open-source Hisn al-Muslim dataset through a normalisation pipeline mapping source categories to the app schema and filtering corrupted machine-translation entries.</li>
-            <li><b>Notifications</b> — local reminders with timezone-aware, exact-alarm scheduling on Android 12+, deep-linking from a notification into the relevant collection.</li>
-            <li><b>Native widgets</b> — Android App Widget in Kotlin and iOS WidgetKit via Swift TimelineProvider, showing an auto-rotating dhikr without opening the app.</li>
-          </ul>
-          <div class="techline">
-            <span class="tech">Flutter</span><span class="tech">Provider</span><span class="tech">WidgetKit/Swift</span><span class="tech">Kotlin</span><span class="tech">local_notifications</span>
-          </div>
-        </article>
-
-        <article class="project" data-tags="mobile">
-          <div class="project__head">
-            <div>
-              <h2 class="project__name">Client apps <span>— Hexa ICT, 2020 – 2023</span></h2>
-              <p class="project__role">50+ Flutter apps across healthcare, logistics and e-commerce. Led 19 end to end, contributed to 30+ more.</p>
+            <p class="project__role">Privacy-first, fully offline: multilingual content, habit tracking, local reminders and native widgets.</p>
+            <ul class="project__points">
+              <li><b>Architecture</b> — no backend at all; clean separation of content, state and UI, with counters, streaks, bookmarks and settings persisted locally.</li>
+              <li><b>Localisation</b> — content across six languages with automatic English fallback and full RTL layout for Arabic and Urdu.</li>
+              <li><b>Content pipeline</b> — integrated the open-source Hisn al-Muslim dataset through a normalisation pipeline mapping source categories to the app schema and filtering corrupted machine-translation entries.</li>
+              <li><b>Notifications</b> — local reminders with timezone-aware, exact-alarm scheduling on Android 12+, deep-linking from a notification into the relevant collection.</li>
+              <li><b>Native widgets</b> — Android App Widget in Kotlin and iOS WidgetKit via Swift TimelineProvider, showing an auto-rotating dhikr without opening the app.</li>
+            </ul>
+            <div class="techline">
+              <span class="tech">Flutter</span><span class="tech">Provider</span><span class="tech">WidgetKit/Swift</span><span class="tech">Kotlin</span><span class="tech">local_notifications</span>
             </div>
-            <span class="pill pill--neutral">Agency work</span>
-          </div>
-          <ul class="project__points">
-            <li><b>Healthcare</b> — CareAtHome, Get Well, Nafs.</li>
-            <li><b>Logistics &amp; delivery</b> — Noor Delivery, Shutlat, iOrdr, Camel Express.</li>
-            <li><b>E-commerce &amp; marketplace</b> — OpenSoq, Jawhar Stores, Diners Hub.</li>
-            <li><b>Scope</b> — architecture, UI/UX and delivery as lead or maintainer, working directly against client requirements.</li>
-          </ul>
-          <div class="techline"><span class="tech">Flutter</span><span class="tech">Dart</span><span class="tech">REST</span><span class="tech">Firebase</span></div>
-          <div class="project__links">
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.mashaaPlayStore" href="#" hidden>Mashaa · Play Store <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.mashaaAppStore" href="#" hidden>Mashaa · App Store <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.basitCaseStudy" href="#" hidden>Basit <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.ocsCaseStudy" href="#" hidden>OCS Kuwait <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
-            <a class="btn btn--secondary btn--sm" data-site-link="projects.finestAppStore" href="#" hidden>Finest <svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg></a>
           </div>
         </article>
 
@@ -268,13 +291,43 @@
     </div>
   </section>
 
-  <section class="section section--tight">
+  <section class="section section--sunk">
     <div class="container container--wide">
-      <div class="cta">
-        <h2 class="h2">Want the detail behind any of these?</h2>
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="eyebrow">Hexa ICT · 2020 – 2023</p>
+          <h2 class="h2" style="margin-top:var(--sp-4)">50+ client apps, <span class="serif accent">19 led end to end</span></h2>
+        </div>
+        <p class="muted" style="max-width:40ch">Architecture, UI/UX and delivery as lead or maintainer across healthcare, logistics and e-commerce, working directly against client requirements.</p>
+      </div>
+
+      <div class="clients" data-stagger>
+        <a class="client" data-site-link="projects.mashaaAppStore" href="#" hidden><b>Mashaa</b><span>App Store</span></a>
+        <a class="client" data-site-link="projects.mashaaPlayStore" href="#" hidden><b>Mashaa</b><span>Google Play</span></a>
+        <a class="client" data-site-link="projects.finestAppStore" href="#" hidden><b>Finest</b><span>App Store</span></a>
+        <a class="client" data-site-link="projects.basitCaseStudy" href="#" hidden><b>Basit</b><span>Product site</span></a>
+        <a class="client" data-site-link="projects.ocsCaseStudy" href="#" hidden><b>OCS Kuwait</b><span>Product site</span></a>
+        <div class="client"><b>CareAtHome</b><span>Healthcare</span></div>
+        <div class="client"><b>Get Well</b><span>Healthcare</span></div>
+        <div class="client"><b>Nafs</b><span>Healthcare</span></div>
+        <div class="client"><b>Noor Delivery</b><span>Logistics</span></div>
+        <div class="client"><b>Shutlat</b><span>Logistics</span></div>
+        <div class="client"><b>iOrdr</b><span>Delivery</span></div>
+        <div class="client"><b>Camel Express</b><span>Logistics</span></div>
+        <div class="client"><b>OpenSoq</b><span>Marketplace</span></div>
+        <div class="client"><b>Jawhar Stores</b><span>E-commerce</span></div>
+        <div class="client"><b>Diners Hub</b><span>E-commerce</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="cta" data-reveal>
+        <h2 class="h2">Want the detail behind <span class="serif">any of these?</span></h2>
         <p>Happy to walk through architecture decisions, trade-offs and what I'd do differently.</p>
         <div class="cta__actions">
-          <a class="btn btn--primary" href="contact.html">Get in touch</a>
+          <a class="btn btn--primary" href="contact.html">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--secondary" href="experience.html">See experience</a>
         </div>
       </div>
@@ -284,18 +337,22 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container container--wide site-footer__inner">
-    <p class="small muted">© <span data-year>2026</span> Abdulla Hussam Jouda</p>
-    <ul class="site-footer__links">
-      <li><a data-site-link="github" href="#" hidden>GitHub</a></li>
-      <li><a data-site-link="linkedin" href="#" hidden>LinkedIn</a></li>
-      <li><a data-site-link="twitter" href="#" hidden>X</a></li>
-      <li><a data-site-link="email" href="#">Email</a></li>
-    </ul>
+  <div class="container container--wide">
+    <div class="site-footer__big" data-reveal><a href="contact.html">Let's build.</a></div>
+    <div class="site-footer__inner">
+      <p class="small muted">© <span data-year>2026</span> Abdulla Hussam Jouda</p>
+      <ul class="site-footer__links">
+        <li><a data-site-link="github" href="#" hidden>GitHub</a></li>
+        <li><a data-site-link="linkedin" href="#" hidden>LinkedIn</a></li>
+        <li><a data-site-link="twitter" href="#" hidden>X</a></li>
+        <li><a data-site-link="email" href="#">Email</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
 
 <script src="js/site-config.js"></script>
+<script src="js/screens.js"></script>
 <script src="js/site.js"></script>
 </body>
 </html>
