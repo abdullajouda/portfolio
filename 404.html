@@ -10,11 +10,18 @@
 <link rel="apple-touch-icon" href="/portfolio/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Inter:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Inter:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=Alexandria:wght@600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;display=swap">
 <link rel="stylesheet" href="/portfolio/css/styles.css?v=d82b3a5">
 <script>
   (function () {
-    try { if (localStorage.getItem("theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}
+    var root = document.documentElement;
+    try { if (localStorage.getItem("theme") === "dark") root.dataset.theme = "dark"; } catch (e) {}
+    // GitHub Pages serves this one file for every missing URL; anything under /ar/ gets Arabic.
+    if (/\/ar(\/|$)/.test(location.pathname)) {
+      root.lang = "ar";
+      root.dir = "rtl";
+      document.title = "الصفحة غير موجودة — عبدالله جودة";
+    }
   })();
 </script>
 </head>
@@ -22,16 +29,34 @@
 <main id="main" class="hero" style="display:grid;place-items:center;min-height:100svh;text-align:center;padding:24px">
   <div class="hero__bg" aria-hidden="true"><span class="blob blob--a"></span><span class="blob blob--b"></span></div>
   <div class="container">
-    <p class="display fade-up" style="font-size:clamp(96px,20vw,220px)">4<span class="serif accent">0</span>4</p>
-    <h1 class="h2 fade-up" style="--d:150ms;margin-top:var(--sp-4)">That page doesn't exist</h1>
-    <p class="lede fade-up" style="--d:300ms;margin:var(--sp-4) auto 0">
+    <p class="display fade-up" dir="ltr" style="font-size:clamp(96px,20vw,220px);line-height:1">4<span class="serif accent">0</span>4</p>
+    <h1 class="h2 fade-up" style="--d:150ms;margin-top:var(--sp-4)" data-ar="هذه الصفحة غير موجودة">That page doesn't exist</h1>
+    <p class="lede fade-up" style="--d:300ms;margin:var(--sp-4) auto 0" data-ar="ربما تغيّر اسمها أو نُقلت. أما الأعمال فكلّها ما زالت هنا.">
       It may have been renamed or moved. The work is all still here.
     </p>
     <p class="fade-up" style="--d:450ms;margin-top:var(--sp-6);display:flex;gap:var(--sp-3);justify-content:center;flex-wrap:wrap">
-      <a class="btn btn--primary" href="/portfolio/">Back home</a>
-      <a class="btn btn--secondary" href="/portfolio/projects.html">See the work</a>
+      <a class="btn btn--primary" href="/portfolio/" data-ar="العودة إلى الرئيسية" data-ar-href="/portfolio/ar/">Back home</a>
+      <a class="btn btn--secondary" href="/portfolio/projects.html" data-ar="شاهد الأعمال" data-ar-href="/portfolio/ar/projects.html">See the work</a>
+    </p>
+    <p class="fade-up" style="--d:600ms;margin-top:var(--sp-5)">
+      <a class="lang-switch" href="/portfolio/ar/" lang="ar" hreflang="ar" data-switch>عربي</a>
     </p>
   </div>
 </main>
+<script>
+  (function () {
+    if (document.documentElement.lang !== "ar") return;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-ar]"), function (el) {
+      el.textContent = el.getAttribute("data-ar");
+      var href = el.getAttribute("data-ar-href");
+      if (href) el.setAttribute("href", href);
+    });
+    var sw = document.querySelector("[data-switch]");
+    sw.textContent = "English";
+    sw.setAttribute("href", "/portfolio/");
+    sw.setAttribute("lang", "en");
+    sw.setAttribute("hreflang", "en");
+  })();
+</script>
 </body>
 </html>
