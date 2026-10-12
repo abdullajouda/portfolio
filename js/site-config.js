@@ -39,4 +39,28 @@ window.SITE_CONFIG = {
     finestAppStore:
       "https://apps.apple.com/us/app/finest-%D9%81%D8%A7%D9%8A%D9%86%D8%B3%D8%AA/id1530031871",
   },
+
+  /**
+   * Real app screenshots. Every phone frame on the site shows a CSS-drawn
+   * mock of the screen until you give it an image here — then the image wins.
+   * Use portrait shots (roughly 9:19.5, e.g. 1179×2556), ideally WebP/PNG in
+   * assets/screens/. Leave a value "" to keep the mock.
+   */
+  screenshots: {
+    "hisab/dashboard": "",
+    "hisab/ledger": "",
+    "hisab/reports": "",
+    "wintoo/feed": "",
+    "wintoo/shop": "",
+    "wintoo/chat": "",
+    "forge/workout": "",
+    "forge/nutrition": "",
+    "forge/progress": "",
+    "lifeos/budget": "",
+    "lifeos/tasks": "",
+    "athkar/counter": "",
+    "athkar/collections": "",
+    /** Web project — use a 16:10 desktop screenshot */
+    "coinplus/web": "",
+  },
 };
